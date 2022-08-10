@@ -17,9 +17,8 @@ namespace WpfApp3.MVVM.ViewModel
         {
             var viewModel = (ProdutoViewModel)parameter;
 
-            if (viewModel.ProdutoEdit.Id != null)
+            if (viewModel.ProdutoEdit.Id != null && viewModel.ProdutoEdit.Id > 0)
             {
-
                 var produto = new Model.Produto();
 
                 int contador = 0;
@@ -54,14 +53,11 @@ namespace WpfApp3.MVVM.ViewModel
                 viewModel.ProdutoSelecionado = produto;
             }
 
-
-
             string jsonString = JsonSerializer.Serialize(viewModel.Produtos, new JsonSerializerOptions() { WriteIndented = true });
             using (StreamWriter outputFile = new StreamWriter("produto.json"))
             {
                 outputFile.WriteLine(jsonString);
             }
         }
-        
     }
 }
