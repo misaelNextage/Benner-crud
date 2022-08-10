@@ -17,7 +17,7 @@ namespace WpfApp3.MVVM.ViewModel
         {
             var viewModel = (ProdutoViewModel)parameter;
 
-            if(viewModel.ProdutoEdit.Id != null)
+            if (viewModel.ProdutoEdit.Id != null)
             {
 
                 var produto = new Model.Produto();
@@ -34,9 +34,10 @@ namespace WpfApp3.MVVM.ViewModel
                 }
 
                 viewModel.Produtos[posicao] = viewModel.ProdutoEdit;
-                
+
                 viewModel.ProdutoSelecionado = produto;
-            } else
+            }
+            else
             {
                 var produto = new Model.Produto();
                 long maxId = 0;
@@ -53,33 +54,13 @@ namespace WpfApp3.MVVM.ViewModel
                 viewModel.ProdutoSelecionado = produto;
             }
 
-                maxId = viewModel.Produtos.Max(f => f.Id);
-            }
-            if(viewModel.Edit == false)
-            {
-                produto.Id = maxId + 1;
-                produto.Nome = viewModel.ProdutoEdit.Nome;
-                produto.Codigo = viewModel.ProdutoEdit.Codigo;
-                produto.Valor = viewModel.ProdutoEdit.Valor;
 
-                viewModel.Produtos.Add(produto);
-                viewModel.ProdutoSelecionado = produto;
 
-                string jsonString = JsonSerializer.Serialize(viewModel.Produtos, new JsonSerializerOptions() { WriteIndented = true });
-                using (StreamWriter outputFile = new StreamWriter("produto.json"))
-                {
-                    outputFile.WriteLine(jsonString);
-                }
-            }
-            else
+            string jsonString = JsonSerializer.Serialize(viewModel.Produtos, new JsonSerializerOptions() { WriteIndented = true });
+            using (StreamWriter outputFile = new StreamWriter("produto.json"))
             {
-                string jsonString = JsonSerializer.Serialize(viewModel.Produtos, new JsonSerializerOptions() { WriteIndented = true });
-                using (StreamWriter outputFile = new StreamWriter("produto.json"))
-                {
-                    outputFile.WriteLine(jsonString);
-                }
+                outputFile.WriteLine(jsonString);
             }
-            
         }
         
     }
