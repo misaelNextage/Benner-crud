@@ -35,7 +35,7 @@
             </StackPanel>
             
             <StackPanel Grid.Row="1" Grid.Column="0" Background="AliceBlue">
-                <RadioButton Content="Vender"
+                <RadioButton Content="Pedidos"
                              Height="50"
                              FontSize="14"
                              Style="{StaticResource BotoesLaterais}"

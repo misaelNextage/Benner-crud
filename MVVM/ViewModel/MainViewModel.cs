@@ -14,7 +14,7 @@ namespace WpfApp3.MVVM.ViewModel
 
         public RelayCommand CadastroPessoaViewCommand { get; set; }
 
-        public VenderViewModel VenderVm { get; set; }
+        public PedidoViewModel VenderVm { get; set; }
         public ProdutoViewModel CadastroProdutoVm { get; set; }
 
         public CadastroPessoaViewModel CadastroPessoaVm { get; set; }
@@ -32,7 +32,7 @@ namespace WpfApp3.MVVM.ViewModel
         public MainViewModel()
         {
             CadastroProdutoVm = new ProdutoViewModel();
-            VenderVm = new VenderViewModel();
+            VenderVm = new PedidoViewModel();
             CurrentView = VenderVm;
             CadastroPessoaVm = new CadastroPessoaViewModel();
 

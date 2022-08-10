@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfApp3.MVVM.ViewModel
 {
-    class VenderViewModel
+    class PedidoViewModel
     {
     }
 }

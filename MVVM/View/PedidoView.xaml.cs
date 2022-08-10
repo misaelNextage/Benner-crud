@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace WpfApp3.MVVM.View
 {
     /// <summary>
-    /// Interação lógica para VenderView.xam
+    /// Interaction logic for PedidoView.xaml
     /// </summary>
-    public partial class VenderView : UserControl
+    public partial class PedidoView : UserControl
     {
-        public VenderView()
+        public PedidoView()
         {
             InitializeComponent();
         }
