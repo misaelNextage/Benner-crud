@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WpfApp3.MVVM.Model
 {
-    class Pessoa : INotifyPropertyChanged
+    class Pessoa : INotifyPropertyChanged, ICloneable, BaseNotifyPropertyChanged
     {
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -24,6 +24,12 @@ namespace WpfApp3.MVVM.Model
         private string _endereco;
         
         public Pessoa() { }
+
+        public object  Clone()
+        {
+            return this.MemberwiseClone();
+        }
+        
 
         [Key]
         public long Id

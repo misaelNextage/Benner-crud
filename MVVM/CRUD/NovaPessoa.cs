@@ -23,19 +23,22 @@ namespace WpfApp3.MVVM.CRUD
             {
                 maxId = viewModel.Pessoas.Max(f => f.Id);
             }
-            pessoa.Id = maxId + 1;
-            pessoa.Nome = viewModel.PessoaEdit.Nome;
-            pessoa.Cpf = viewModel.PessoaEdit.Cpf;
-            pessoa.Endereco = viewModel.PessoaEdit.Endereco;
+            if(viewModel.Edicao == false) {
+                pessoa.Id = maxId + 1;
+                pessoa.Nome = viewModel.PessoaEdit.Nome;
+                pessoa.Cpf = viewModel.PessoaEdit.Cpf;
+                pessoa.Endereco = viewModel.PessoaEdit.Endereco;
 
-            viewModel.Pessoas.Add(pessoa);
-            viewModel.PessoasSelecionado = pessoa;
+                viewModel.Pessoas.Add(pessoa);
+                viewModel.PessoasSelecionado = pessoa;
 
-            string jsonString = JsonSerializer.Serialize(viewModel.Pessoas, new JsonSerializerOptions() { WriteIndented = true });
-            using (StreamWriter outputFile = new StreamWriter("pessoa.json"))
-            {
-                outputFile.WriteLine(jsonString);
+                string jsonString = JsonSerializer.Serialize(viewModel.Pessoas, new JsonSerializerOptions() { WriteIndented = true });
+                using (StreamWriter outputFile = new StreamWriter("pessoa.json"))
+                {
+                    outputFile.WriteLine(jsonString);
+                }
             }
+           
         }
     }
 }

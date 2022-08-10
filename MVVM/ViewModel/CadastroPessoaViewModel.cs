@@ -12,6 +12,9 @@ namespace WpfApp3.MVVM.ViewModel
     {
         public Pessoa Pessoa { get; internal set; }
         public ObservableCollection<Pessoa> Pessoas { get; private set; }
+        public DeletarPessoa Deletar { get; private set; } = new DeletarPessoa();
+
+        public EditarPessoa Editar { get; private set; } = new EditarPessoa();
 
         private Pessoa _pessoaSelecionado;
         public Pessoa PessoasSelecionado
@@ -56,5 +59,6 @@ namespace WpfApp3.MVVM.ViewModel
                 PessoasSelecionado = Pessoas.FirstOrDefault();
             }
         }
+        public bool Edicao = false;
     }
 }
