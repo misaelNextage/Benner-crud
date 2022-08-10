@@ -14,11 +14,11 @@
             <DataTemplate DataType="{x:Type viewModel:ProdutoViewModel}">
                 <view:CadastroProduto/>
             </DataTemplate>
-            <DataTemplate DataType="{x:Type viewModel:VenderViewModel}">
-                <view:VenderView/>
-            </DataTemplate>
             <DataTemplate DataType="{x:Type viewModel:CadastroPessoaViewModel}">
                 <view:CadastrarPessoa/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:PedidoViewModel}">
+                <view:PedidoView/>
             </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>

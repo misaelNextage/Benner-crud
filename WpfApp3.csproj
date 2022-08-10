@@ -121,7 +121,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MVVM\View\VenderView.xaml">
+    <Page Include="MVVM\View\PedidoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -140,19 +140,19 @@
     <Compile Include="MVVM\Model\Pessoa.cs" />
     <Compile Include="MVVM\Model\Produto.cs" />
     <Compile Include="MVVM\ViewModel\CadastroPessoaViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\PedidoViewModel.cs" />
     <Compile Include="MVVM\ViewModel\ProdutoViewModel.cs" />
     <Compile Include="MVVM\CRUD\DeletarProduto.cs" />
     <Compile Include="MVVM\ViewModel\MainViewModel.cs" />
     <Compile Include="MVVM\CRUD\NovoProduto.cs" />
-    <Compile Include="MVVM\ViewModel\VenderViewModel.cs" />
     <Compile Include="MVVM\View\CadastrarPessoa.xaml.cs">
       <DependentUpon>CadastrarPessoa.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\View\CadastroProduto.xaml.cs">
       <DependentUpon>CadastroProduto.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MVVM\View\VenderView.xaml.cs">
-      <DependentUpon>VenderView.xaml</DependentUpon>
+    <Compile Include="MVVM\View\PedidoView.xaml.cs">
+      <DependentUpon>PedidoView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

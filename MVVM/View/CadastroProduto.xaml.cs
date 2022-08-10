@@ -53,6 +53,7 @@ namespace WpfApp3.MVVM.View
             using (StreamWriter outputFile = new StreamWriter("produto.json"))
             {
                 outputFile.WriteLine(jsonString);
+                outputFile.Close();
             }
         }
     }

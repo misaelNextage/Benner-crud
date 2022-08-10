@@ -21,19 +21,32 @@ namespace WpfApp3.MVVM.ViewModel
             {
                 maxId = viewModel.Produtos.Max(f => f.Id);
             }
-            produto.Id = maxId + 1;
-            produto.Nome = viewModel.ProdutoEdit.Nome;
-            produto.Codigo = viewModel.ProdutoEdit.Codigo;
-            produto.Valor = viewModel.ProdutoEdit.Valor;
-
-            viewModel.Produtos.Add(produto);
-            viewModel.ProdutoSelecionado = produto;
-
-            string jsonString = JsonSerializer.Serialize(viewModel.Produtos, new JsonSerializerOptions() { WriteIndented = true });
-            using (StreamWriter outputFile = new StreamWriter("produto.json"))
+            if(viewModel.Edit == false)
             {
-                outputFile.WriteLine(jsonString);
+                produto.Id = maxId + 1;
+                produto.Nome = viewModel.ProdutoEdit.Nome;
+                produto.Codigo = viewModel.ProdutoEdit.Codigo;
+                produto.Valor = viewModel.ProdutoEdit.Valor;
+
+                viewModel.Produtos.Add(produto);
+                viewModel.ProdutoSelecionado = produto;
+
+                string jsonString = JsonSerializer.Serialize(viewModel.Produtos, new JsonSerializerOptions() { WriteIndented = true });
+                using (StreamWriter outputFile = new StreamWriter("produto.json"))
+                {
+                    outputFile.WriteLine(jsonString);
+                }
             }
+            else
+            {
+                string jsonString = JsonSerializer.Serialize(viewModel.Produtos, new JsonSerializerOptions() { WriteIndented = true });
+                using (StreamWriter outputFile = new StreamWriter("produto.json"))
+                {
+                    outputFile.WriteLine(jsonString);
+                }
+            }
+            
         }
+        
     }
 }
