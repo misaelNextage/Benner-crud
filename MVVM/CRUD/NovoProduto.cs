@@ -19,6 +19,7 @@ namespace WpfApp3.MVVM.ViewModel
 
             if(viewModel.ProdutoEdit.Id != null)
             {
+
                 var produto = new Model.Produto();
 
                 int contador = 0;
@@ -52,11 +53,34 @@ namespace WpfApp3.MVVM.ViewModel
                 viewModel.ProdutoSelecionado = produto;
             }
 
-            string jsonString = JsonSerializer.Serialize(viewModel.Produtos, new JsonSerializerOptions() { WriteIndented = true });
-            using (StreamWriter outputFile = new StreamWriter("produto.json"))
-            {
-                outputFile.WriteLine(jsonString);
+                maxId = viewModel.Produtos.Max(f => f.Id);
             }
+            if(viewModel.Edit == false)
+            {
+                produto.Id = maxId + 1;
+                produto.Nome = viewModel.ProdutoEdit.Nome;
+                produto.Codigo = viewModel.ProdutoEdit.Codigo;
+                produto.Valor = viewModel.ProdutoEdit.Valor;
+
+                viewModel.Produtos.Add(produto);
+                viewModel.ProdutoSelecionado = produto;
+
+                string jsonString = JsonSerializer.Serialize(viewModel.Produtos, new JsonSerializerOptions() { WriteIndented = true });
+                using (StreamWriter outputFile = new StreamWriter("produto.json"))
+                {
+                    outputFile.WriteLine(jsonString);
+                }
+            }
+            else
+            {
+                string jsonString = JsonSerializer.Serialize(viewModel.Produtos, new JsonSerializerOptions() { WriteIndented = true });
+                using (StreamWriter outputFile = new StreamWriter("produto.json"))
+                {
+                    outputFile.WriteLine(jsonString);
+                }
+            }
+            
         }
+        
     }
 }

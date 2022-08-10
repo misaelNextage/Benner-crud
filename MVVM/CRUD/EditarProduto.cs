@@ -24,11 +24,41 @@ namespace WpfApp3.MVVM.crud
             var viewModel = (ProdutoViewModel)parameter;
            
             var cloneProduto = (Model.Produto)viewModel.ProdutoSelecionado.Clone();
-             
+            
+
             viewModel.ProdutoEdit.Id = cloneProduto.Id;
             viewModel.ProdutoEdit.Nome = cloneProduto.Nome;
             viewModel.ProdutoEdit.Codigo = cloneProduto.Codigo;
             viewModel.ProdutoEdit.Valor = cloneProduto.Valor;
+
+            int contador = 0;
+            int posicao = -1;
+            foreach (Produto produto in viewModel.Produtos)
+            {
+                if (produto.Id == viewModel.ProdutoEdit.Id)
+                {
+                    posicao = contador;
+                }
+                contador++;
+            }
+
+            viewModel.Produtos[posicao] = viewModel.ProdutoEdit;
+
+            viewModel.Edit = true;
+
+
+
+            string jsonString = JsonSerializer.Serialize(viewModel.Produtos, new JsonSerializerOptions() { WriteIndented = true });
+            using (StreamWriter outputFile = new StreamWriter("produto.json"))
+            {
+                outputFile.WriteLine(jsonString);
+                outputFile.Close();
+            }
+
+            /*viewModel.ProdutoEdit.Id = 0;
+            viewModel.ProdutoEdit.Nome = "";
+            viewModel.ProdutoEdit.Codigo = 0;
+            viewModel.ProdutoEdit.Valor = 0.0;*/
         }
     }
 }

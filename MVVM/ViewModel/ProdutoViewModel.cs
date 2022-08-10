@@ -67,5 +67,6 @@ namespace WpfApp3.MVVM.ViewModel
                 ProdutoSelecionado = Produtos.FirstOrDefault();
             }
         }
+        public bool Edit = false;
     }
 }
