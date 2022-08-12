@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using System.Text.Json;
+using System.Windows;
 using WpfApp3.core;
 using WpfApp3.MVVM.ViewModel;
 
@@ -29,8 +30,14 @@ namespace WpfApp3.MVVM.CRUD
                 pessoa.Cpf = viewModel.PessoaEdit.Cpf;
                 pessoa.Endereco = viewModel.PessoaEdit.Endereco;
 
-                viewModel.Pessoas.Add(pessoa);
-                viewModel.PessoasSelecionado = pessoa;
+                if (pessoa.Nome == null || pessoa.Cpf == null || pessoa.Endereco == null || pessoa.Nome == "" || pessoa.Cpf == "" || pessoa.Endereco == "")
+
+                    MessageBox.Show("Por favor, preencha todos os campos!", "Atenção", MessageBoxButton.OK, MessageBoxImage.Error);
+                else
+                {
+                    viewModel.Pessoas.Add(pessoa);
+                    viewModel.PessoasSelecionado = pessoa;
+                }
 
                 string jsonString = JsonSerializer.Serialize(viewModel.Pessoas, new JsonSerializerOptions() { WriteIndented = true });
                 using (StreamWriter outputFile = new StreamWriter("pessoa.json"))
