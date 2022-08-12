@@ -140,6 +140,7 @@
     <Compile Include="MVVM\Model\Pessoa.cs" />
     <Compile Include="MVVM\Model\Produto.cs" />
     <Compile Include="MVVM\ViewModel\CadastroPessoaViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\ErrosViewModel.cs" />
     <Compile Include="MVVM\ViewModel\PedidoViewModel.cs" />
     <Compile Include="MVVM\ViewModel\ProdutoViewModel.cs" />
     <Compile Include="MVVM\CRUD\DeletarProduto.cs" />

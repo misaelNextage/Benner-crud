@@ -8,7 +8,8 @@
              xmlns:model="clr-namespace:WpfApp3.MVVM.Model"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-
+   
+  
     <StackPanel Margin="20">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -21,12 +22,39 @@
             </Grid.RowDefinitions>
             <StackPanel Grid.Column="0" Grid.Row="1" Margin="6" Orientation="Vertical">
                 <Label Content="Nome do Produto" />
-                <TextBox Text="{Binding ProdutoEdit.Nome}" Name="nomeProduto" Width="250" Height="20" HorizontalAlignment="Left" Margin="0,0,0,20"/>
+                <TextBox Text="{Binding ProdutoEdit.Nome, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" 
+                         Name="nomeProduto" 
+                         Width="250" 
+                         Height="20" 
+                         HorizontalAlignment="Left" 
+                         Margin="0,0,0,20" TextChanged="NomeProduto_TextChanged">
+                    <Validation.ErrorTemplate>
+                        <ControlTemplate>
+                            <StackPanel>
+                                <AdornedElementPlaceholder x:Name="textBox" />
+                                <ItemsControl ItemsSource="{Binding}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding ErrorContent}" />
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </StackPanel>
+                        </ControlTemplate>
+                    </Validation.ErrorTemplate>
+                </TextBox>
                 <Label Content="Codigo do Produto" />
-                <TextBox Text="{Binding ProdutoEdit.Codigo}" Name="codigoProduto" Width="250" Height="20" HorizontalAlignment="Left" Margin="0,0,0,20"/>
+                <TextBox Text="{Binding ProdutoEdit.Codigo}" 
+                         Name="codigoProduto" 
+                         Width="250" 
+                         Height="20" 
+                         HorizontalAlignment="Left" 
+                         Margin="0,0,0,20"/>
                 <Label Content="Valor do Produto" />
                 <TextBox Text="{Binding ProdutoEdit.Valor}" Name="valorProduto" Width="250" Height="20" HorizontalAlignment="Left" Margin="0,0,0,20"/>
                 <Button Width="150" 
+                        Name="Cadastrar"
+                        IsEnabled="False"
                         Height="50"
                         Margin="0,0,0,0"
                         Cursor="Hand"
@@ -50,7 +78,7 @@
                                    Foreground="White"
                                    FontSize="28"
                                    Margin="5,5,5,5"
-                                   HorizontalAlignment="Center"/>
+                                   HorizontalAlignment="Center" />
                         </StackPanel>
                     </Grid>
                 </Button>

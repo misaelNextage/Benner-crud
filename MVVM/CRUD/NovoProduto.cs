@@ -1,6 +1,8 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
 using System.Text.Json;
+using System.Windows;
 using WpfApp3.core;
 using WpfApp3.MVVM.Model;
 
@@ -49,8 +51,14 @@ namespace WpfApp3.MVVM.ViewModel
                 produto.Codigo = viewModel.ProdutoEdit.Codigo;
                 produto.Valor = viewModel.ProdutoEdit.Valor;
 
+                if (produto.Nome.Length == 0 || produto.Valor <= 0 || produto.Codigo <= 0)
+
+                    MessageBox.Show("Por favor, preencha todos os campos!");
+                    
+                else{
                 viewModel.Produtos.Add(produto);
-                viewModel.ProdutoSelecionado = produto;
+                viewModel.ProdutoSelecionado = produto;               
+                }
             }
 
             string jsonString = JsonSerializer.Serialize(viewModel.Produtos, new JsonSerializerOptions() { WriteIndented = true });
