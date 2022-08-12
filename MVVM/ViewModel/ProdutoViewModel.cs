@@ -22,7 +22,8 @@ namespace WpfApp3.MVVM.ViewModel
         private Produto _produtoEdit = new Produto();
 
         public Produto Produto { get; internal set; }
-
+        
+       
         public ObservableCollection<Produto> Produtos { get; private set; }       
 
         public Produto ProdutoSelecionado

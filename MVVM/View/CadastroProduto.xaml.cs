@@ -18,15 +18,20 @@ namespace WpfApp3.MVVM.View
             DataContext = new ViewModel.ProdutoViewModel();
         }
 
+        public void Teste(object produto)
+        {
+            var a = 0;
+            //Button_Click(produto);
+        }
         public void salvar(object sender, RoutedEventArgs e)
-        {   
+        {
             Produto produto = new Produto();
-            
+
             produto.Nome = nomeProduto.Text;
-            produto.Id =1;
+            produto.Id = 1;
             produto.Codigo = int.Parse(codigoProduto.Text);
             produto.Valor = double.Parse(valorProduto.Text);
-            
+
 
             List<Produto> source = new List<Produto>();
 
@@ -52,6 +57,16 @@ namespace WpfApp3.MVVM.View
                 Cadastrar.IsEnabled = true;
 
 
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var t = sender;
+            nomeProduto.Text = "";
+            valorProduto.Text = "";
+            codigoProduto.Text = "";
+
+            //View
         }
     }
 }

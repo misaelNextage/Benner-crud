@@ -85,6 +85,8 @@
             </StackPanel>
 
             <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal">
+                <Button Margin="3" Padding="3" 
+                        Content="Novo" Click="Button_Click"/>
                 <Button Margin="3"
                         Padding="3"
                         CommandParameter="{Binding}"
