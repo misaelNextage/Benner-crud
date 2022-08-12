@@ -25,6 +25,9 @@ namespace WpfApp3.MVVM.CRUD
             viewModel.PessoaEdit.Cpf = clonePessoa.Cpf;
             viewModel.PessoaEdit.Endereco = clonePessoa.Endereco;
 
+            viewModel.Pessoas.Clear();
+            viewModel.PreparaPessoaCollection();
+
             int contador = 0;
             int posicao = -1;
             foreach (Pessoa pessoa in viewModel.Pessoas)
@@ -45,6 +48,7 @@ namespace WpfApp3.MVVM.CRUD
             {
                 outputFile.WriteLine(jsonString);
             }
+            
         }
     }
 }
