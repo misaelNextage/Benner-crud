@@ -21,7 +21,7 @@
                 <Label Content="Nome" />
                 <TextBox Text="{Binding PessoaEdit.Nome}" x:Name="Nome" Width="250" Height="20" HorizontalAlignment="Left" Margin="0,0,0,20" ToolTip="Informe seu nome"/>
                 <Label Content="CPF" />
-                <TextBox Text="{Binding PessoaEdit.Cpf}" x:Name="Cpf" Width="250" Height="20" HorizontalAlignment="Left" Margin="0,0,0,20" LostFocus="Cpf_LostFocus" GotFocus="Cpf_GotFocus" ToolTip="Informe seu CPF contendo 11 dígitos"/>
+                <TextBox Text="{Binding PessoaEdit.Cpf}" x:Name="Cpf" Width="250" Height="20" HorizontalAlignment="Left" Margin="0,0,0,20" LostFocus="Cpf_LostFocus" GotFocus="Cpf_GotFocus" ToolTip="Informe seu CPF contendo 11 dígitos" PreviewTextInput="Cpf_PreviewTextInput"/>
                 <Label Content="Endereço" />
                 <TextBox Text="{Binding PessoaEdit.Endereco}" x:Name="Endereco" Width="250" Height="20" HorizontalAlignment="Left" Margin="0,0,0,20" ToolTip="Informe seu endereço"/>
                 <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal">
