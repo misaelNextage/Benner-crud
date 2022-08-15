@@ -33,20 +33,6 @@
                         Command="{Binding Novo}"                       
                         Content="Cadastrar" Background="#FF62C162"
                        />
-                    <Button Margin="30 0 0 0"
-                        Width="63" 
-                        Height="30"
-                        Padding="3"
-                        CommandParameter="{Binding}"
-                        Command="{Binding Editar}"
-                        Content="Editar" Background="#FFC5C6CB"/>
-                    <Button Margin="30 0 0 0"
-                        Width="63" 
-                        Height="30" 
-                        Padding="3" 
-                        CommandParameter="{Binding}"
-                        Command="{Binding Deletar}"
-                        Content="Deletar" Background="#FFE68282"/>
                 </StackPanel>
             </StackPanel>
 
@@ -58,7 +44,7 @@
                     <Button Content="Pesquisar" Margin="210,17,25,6" Height="24" CommandParameter="{Binding}" Command="{Binding Pesquisa}" Cursor="Hand"/>
                 </Grid>
             </StackPanel>
-            
+
             <ScrollViewer Grid.Column="1"
                           Grid.Row="1"
                           HorizontalScrollBarVisibility="Auto"
@@ -78,6 +64,29 @@
                     </DataGrid.Columns>
                 </DataGrid>
             </ScrollViewer>
+            <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" Margin="0,260,0,-57">
+                <Button Margin="30 0 0 0"
+                        Width="63" 
+                        Height="30"
+                        Padding="3"
+                        CommandParameter="{Binding}"
+                        Command="{Binding Editar}"
+                        Content="Editar" Background="#FFC5C6CB"/>
+                <Button Margin="30 0 0 0"
+                        Width="63" 
+                        Height="30" 
+                        Padding="3" 
+                        CommandParameter="{Binding}"
+                        Command="{Binding Deletar}"
+                        Content="Deletar" Background="#FFE68282"/>
+                <Button Margin="30 0 0 0"
+                        Width="85" 
+                        Height="30" 
+                        Padding="3" 
+                        CommandParameter="{Binding}"
+                        Command="{Binding NovoPedido}"
+                        Content="Novo Pedido" Background="#FF4DCF5F"/>
+            </StackPanel>
         </Grid>
     </StackPanel>
 </UserControl>
