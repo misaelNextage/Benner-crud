@@ -48,5 +48,27 @@ namespace WpfApp3.MVVM.View
         {
 
         }
+
+        private void Cpf_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string cpf = Cpf.Text;
+            Cpf.MaxLength = 14;
+            try
+            {
+                if(Cpf.Text != null && Cpf.Text != "")
+                {
+                    Cpf.Text = Cpf.Text.Length == 11 ? System.Convert.ToUInt64(cpf).ToString(@"000\.000\.000\-00"): cpf;
+                }
+                
+            }
+            catch { Cpf.Text = cpf; }
+            
+        }
+
+        private void Cpf_GotFocus(object sender, RoutedEventArgs e)
+        {
+            Cpf.MaxLength = 11;
+            Cpf.Text = System.Text.RegularExpressions.Regex.Replace(Cpf.Text, "[^0-9]","");
+        }
     }
 }

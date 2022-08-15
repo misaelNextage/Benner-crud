@@ -27,15 +27,18 @@ namespace WpfApp3.MVVM.CRUD
             if(viewModel.Edicao == false) {
                     pessoa.Id = maxId + 1;
                     pessoa.Nome = viewModel.PessoaEdit.Nome;
-                    pessoa.Cpf = viewModel.PessoaEdit.Cpf;
+                    pessoa.Cpf = viewModel.PessoaEdit.Cpf != null ? System.Text.RegularExpressions.Regex.Replace(viewModel.PessoaEdit.Cpf, "[^0-9]", "") : viewModel.PessoaEdit.Cpf;
                     pessoa.Endereco = viewModel.PessoaEdit.Endereco;
                 
                 if (pessoa.Nome == null || pessoa.Cpf == null || pessoa.Endereco == null || pessoa.Nome == "" || pessoa.Cpf == "" || pessoa.Endereco == "")
 
                     MessageBox.Show("Por favor, preencha todos os campos!", "Atenção", MessageBoxButton.OK, MessageBoxImage.Error);
 
-                else if (!viewModel.PessoaEdit.Cpf.All(char.IsDigit))
+                else if (!viewModel.PessoaEdit.Cpf.All(char.IsDigit) && !pessoa.Cpf.All(char.IsDigit))
                     MessageBox.Show("CPF precisa ser numérico!", "Atenção", MessageBoxButton.OK, MessageBoxImage.Warning);
+
+                else if (pessoa.Cpf.Length < 11)
+                    MessageBox.Show("Erro ao salvar o CPF, pois o campo CPF precisa conter 11 Digitos númericos.", "Atenção", MessageBoxButton.OK, MessageBoxImage.Warning);
                 else
                 {
                     viewModel.Pessoas.Add(pessoa);
