@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
+using System.Windows;
 using WpfApp3.core;
 using WpfApp3.MVVM.ViewModel;
 
@@ -21,9 +18,12 @@ namespace WpfApp3.MVVM.CRUD
         public override void Execute(object parameter)
         {
             var viewModel = (CadastroPessoaViewModel)parameter;
-            viewModel.Pessoas.Remove(viewModel.PessoasSelecionado);
-            viewModel.PessoasSelecionado = viewModel.Pessoas.FirstOrDefault();
 
+            if (MessageBox.Show("Você tem certeza que quer deletar esse item?", "Atenção", MessageBoxButton.YesNo, MessageBoxImage.Error) == MessageBoxResult.Yes)
+            {
+                viewModel.Pessoas.Remove(viewModel.PessoasSelecionado);
+                viewModel.PessoasSelecionado = viewModel.Pessoas.FirstOrDefault();
+            }
             string jsonString = JsonSerializer.Serialize(viewModel.Pessoas, new JsonSerializerOptions() { WriteIndented = true });
             using (StreamWriter outputFile = new StreamWriter("pessoa.json"))
             {
