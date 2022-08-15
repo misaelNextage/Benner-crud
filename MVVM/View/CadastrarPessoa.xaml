@@ -48,12 +48,12 @@
             <ScrollViewer Grid.Column="1"
                           Grid.Row="1"
                           HorizontalScrollBarVisibility="Auto"
-                          VerticalScrollBarVisibility="Auto" Margin="0,0,23,0">
+                          VerticalScrollBarVisibility="Auto" Margin="0,0,23,338">
                 <DataGrid Grid.Column="1" ItemsSource="{Binding Pessoas}"
                       AutoGenerateColumns="False"
                       IsReadOnly="True"
-                          Height="250"
-                          Width="293"
+                          Height="136"
+                          Width="292"
                       Name="datagridPessoas"
                       SelectedItem="{Binding PessoasSelecionado}" SelectionMode="Single">
                     <DataGrid.Columns>
@@ -64,25 +64,41 @@
                     </DataGrid.Columns>
                 </DataGrid>
             </ScrollViewer>
-            <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" Margin="0,260,0,-57">
-                <Button Margin="30 0 0 0"
+            <DataGrid Grid.Column="1" Margin="0,146,0,214" Grid.Row="1"
+                      ItemsSource="{Binding Pedidos}"
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True"
+                      Name="datagridPed"
+                      SelectedItem="{Binding PedidosSelecionado}" SelectionMode="Single" HorizontalAlignment="Left" Width="292">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Valor total" Binding="{Binding Id}"/>
+                    <DataGridTextColumn Header="Status" Binding="{Binding Id}"/>
+                    <DataGridTextColumn Header="Data venda" Binding="{Binding Id}"/>
+                    <DataGridTextColumn Header="Forma pagamento" Binding="{Binding Id}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" Margin="0,260,31,146">
+                <Button Margin="22,19,0,19"
                         Width="63" 
                         Height="30"
                         Padding="3"
                         CommandParameter="{Binding}"
                         Command="{Binding Editar}"
+                        
                         Content="Editar" Background="#FFC5C6CB"/>
-                <Button Margin="30 0 0 0"
+                <Button Margin="22 0 0 0"
                         Width="63" 
                         Height="30" 
                         Padding="3" 
+                        Cursor="Hand"
                         CommandParameter="{Binding}"
                         Command="{Binding Deletar}"
                         Content="Deletar" Background="#FFE68282"/>
-                <Button Margin="30 0 0 0"
+                <Button Margin="22 0 0 0"
                         Width="85" 
                         Height="30" 
                         Padding="3" 
+                        Cursor="Hand"
                         CommandParameter="{Binding}"
                         Command="{Binding NovoPedido}"
                         Content="Novo Pedido" Background="#FF4DCF5F"/>

@@ -9,10 +9,14 @@ namespace WpfApp3.MVVM.ViewModel
 
         public RelayCommand CadastroPessoaViewCommand { get; set; }
 
+        public RelayCommand NovoPedidoCommand { get; set; }
+
         public PedidoViewModel VenderVm { get; set; }
         public ProdutoViewModel CadastroProdutoVm { get; set; }
 
         public CadastroPessoaViewModel CadastroPessoaVm { get; set; }
+
+        public PedidoViewModel NovoPedido { get; set; }
 
         private object _currentView;
         public object CurrentView
@@ -31,6 +35,7 @@ namespace WpfApp3.MVVM.ViewModel
             VenderVm = new PedidoViewModel();
             CurrentView = VenderVm;
             CadastroPessoaVm = new CadastroPessoaViewModel();
+            NovoPedido = new PedidoViewModel();
 
             CadastroViewCommand = new RelayCommand(a =>
             {
@@ -45,6 +50,11 @@ namespace WpfApp3.MVVM.ViewModel
             CadastroPessoaViewCommand = new RelayCommand(a =>
             {
                 CurrentView = CadastroPessoaVm;
+            });
+
+            NovoPedidoCommand = new RelayCommand(a =>
+            {
+                CurrentView = NovoPedido;
             });
         }
     }
