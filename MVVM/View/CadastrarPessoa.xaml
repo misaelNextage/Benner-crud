@@ -67,7 +67,7 @@
                       AutoGenerateColumns="False"
                       IsReadOnly="True"
                           Height="250"
-                          Width="250"
+                          Width="378"
                       Name="datagridPessoas"
                       SelectedItem="{Binding PessoasSelecionado}" SelectionMode="Single">
                     <DataGrid.Columns>

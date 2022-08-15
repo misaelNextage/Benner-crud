@@ -7,9 +7,6 @@ using WpfApp3.MVVM.Model;
 
 namespace WpfApp3.MVVM.View
 {
-    /// <summary>
-    /// Interação lógica para CadastroProduto.xam
-    /// </summary>
     public partial class CadastroProduto : UserControl
     {
         public CadastroProduto()
@@ -19,14 +16,15 @@ namespace WpfApp3.MVVM.View
         }
 
         public void salvar(object sender, RoutedEventArgs e)
-        {   
+        {
+
             Produto produto = new Produto();
-            
+
             produto.Nome = nomeProduto.Text;
-            produto.Id =1;
+            produto.Id = 1;
             produto.Codigo = int.Parse(codigoProduto.Text);
             produto.Valor = double.Parse(valorProduto.Text);
-            
+
 
             List<Produto> source = new List<Produto>();
 
@@ -42,16 +40,24 @@ namespace WpfApp3.MVVM.View
             using (StreamWriter outputFile = new StreamWriter("produto.json"))
             {
                 outputFile.WriteLine(jsonString);
-                outputFile.Close();
             }
         }
-
-        private void NomeProduto_TextChanged(object sender, TextChangedEventArgs e)
+        public void editar(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(nomeProduto.Text) && nomeProduto.Text.Length > 3)
-                Cadastrar.IsEnabled = true;
+            string teste = "teste";
 
+        }
 
+        private void DatagridProdutos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.RemovedItems.Count > 0)
+            {
+                int index = datagridProdutos.SelectedIndex;
+                object a = e.Source;
+
+                object b = e.AddedItems;
+
+            }
         }
     }
 }

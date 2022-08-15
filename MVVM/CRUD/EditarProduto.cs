@@ -13,8 +13,10 @@ namespace WpfApp3.MVVM.crud
 
         public override void Execute(object parameter)
         {
-            var viewModel = new ProdutoViewModel();
-            viewModel = (ProdutoViewModel)parameter;
+
+            var viewModel = (ProdutoViewModel)parameter;
+
+            var produtoSelecionado = viewModel.ProdutoSelecionado;
 
             var cloneProduto = (Model.Produto)viewModel.ProdutoSelecionado.Clone();
 
@@ -23,8 +25,6 @@ namespace WpfApp3.MVVM.crud
             viewModel.ProdutoEdit.Codigo = cloneProduto.Codigo;
             viewModel.ProdutoEdit.Valor = cloneProduto.Valor;
 
-            viewModel.Produtos.Clear();
-            viewModel.PreparaProdutoCollection();
         }
     }
 }
