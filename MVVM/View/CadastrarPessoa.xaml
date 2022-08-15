@@ -61,11 +61,13 @@
             
             <ScrollViewer Grid.Column="1"
                           Grid.Row="1"
-                          HorizontalScrollBarVisibility="Visible"
-                          VerticalScrollBarVisibility="Visible" Grid.ColumnSpan="2">
+                          HorizontalScrollBarVisibility="Auto"
+                          VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="2">
                 <DataGrid Grid.Column="1" ItemsSource="{Binding Pessoas}"
                       AutoGenerateColumns="False"
                       IsReadOnly="True"
+                          Height="250"
+                          Width="250"
                       Name="datagridPessoas"
                       SelectedItem="{Binding PessoasSelecionado}" SelectionMode="Single">
                     <DataGrid.Columns>
