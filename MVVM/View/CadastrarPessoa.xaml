@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel Margin="20">
-        <Grid>
+        <Grid Margin="0,0,10,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -48,12 +48,12 @@
             <ScrollViewer Grid.Column="1"
                           Grid.Row="1"
                           HorizontalScrollBarVisibility="Auto"
-                          VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="2">
+                          VerticalScrollBarVisibility="Auto" Margin="0,0,23,0">
                 <DataGrid Grid.Column="1" ItemsSource="{Binding Pessoas}"
                       AutoGenerateColumns="False"
                       IsReadOnly="True"
                           Height="250"
-                          Width="378"
+                          Width="293"
                       Name="datagridPessoas"
                       SelectedItem="{Binding PessoasSelecionado}" SelectionMode="Single">
                     <DataGrid.Columns>
