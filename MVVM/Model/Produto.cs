@@ -2,21 +2,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 namespace WpfApp3.MVVM.Model
 {
-    public class Produto : INotifyPropertyChanged, ICloneable, BaseNotifyPropertyChanged,  INotifyDataErrorInfo
+    public class Produto : INotifyPropertyChanged, ICloneable, BaseNotifyPropertyChanged, INotifyDataErrorInfo
     {
-        
+
 
         public event PropertyChangedEventHandler PropertyChanged;
         public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
 
-        // Esta rotina é chamada cada vez que o valor da propridade 
-        // for definida. Isso vai disparar um evento para notificar 
-        // a WPF via data binding que algo mudou
         private void OnPropertyChanged(string nomePropriedade)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nomePropriedade));
@@ -34,7 +30,7 @@ namespace WpfApp3.MVVM.Model
 
 
         public Produto() { }
-        
+
         public long Id
         {
             get { return _id; }
@@ -44,7 +40,7 @@ namespace WpfApp3.MVVM.Model
                 OnPropertyChanged("Id");
             }
         }
-        
+
         public string Nome
         {
             get { return _nome; }
@@ -55,7 +51,7 @@ namespace WpfApp3.MVVM.Model
                 ValidateUserName();
             }
         }
-        
+
         public int Codigo
         {
             get { return _codigo; }
@@ -65,7 +61,7 @@ namespace WpfApp3.MVVM.Model
                 OnPropertyChanged("Codigo");
             }
         }
-        
+
         public double Valor
         {
             get { return _valor; }
@@ -77,7 +73,7 @@ namespace WpfApp3.MVVM.Model
         }
 
         public bool HasErrors => _errorsByPropertyName.Any();
-        
+
 
         private readonly Dictionary<string, List<string>> _errorsByPropertyName = new Dictionary<string, List<string>>();
 
@@ -122,4 +118,4 @@ namespace WpfApp3.MVVM.Model
             }
         }
     }
-    }
+}

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
@@ -23,7 +22,7 @@ namespace WpfApp3.MVVM.ViewModel
 
         public Produto Produto { get; internal set; }
 
-        public ObservableCollection<Produto> Produtos { get; private set; }       
+        public ObservableCollection<Produto> Produtos { get; private set; }
 
         public Produto ProdutoSelecionado
         {
@@ -34,11 +33,11 @@ namespace WpfApp3.MVVM.ViewModel
                 Editar.RaiseCanExecuteChanged();
             }
         }
-                
+
         public Produto ProdutoEdit
         {
             get { return _produtoEdit; }
-            set {_produtoEdit = value; }
+            set { _produtoEdit = value; }
         }
 
         public ProdutoViewModel()

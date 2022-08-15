@@ -19,14 +19,14 @@ namespace WpfApp3.MVVM.Model
         private string _cpf;
 
         private string _endereco;
-        
+
         public Pessoa() { }
 
-        public object  Clone()
+        public object Clone()
         {
             return this.MemberwiseClone();
         }
-        
+
 
         [Key]
         public long Id

@@ -48,7 +48,7 @@ namespace WpfApp3.MVVM.CRUD
             {
                 outputFile.WriteLine(jsonString);
             }
-            
+
         }
     }
 }
