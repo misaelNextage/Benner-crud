@@ -52,48 +52,33 @@
                          Margin="0,0,0,20"/>
                 <Label Content="Valor do Produto" />
                 <TextBox Text="{Binding ProdutoEdit.Valor}" Name="valorProduto" Width="250" Height="20" HorizontalAlignment="Left" Margin="0,0,0,20"/>
-                <Button Width="150" 
+                <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal">
+                    <Button Width="63" 
+                        Height="30"
+                        Margin="0 0 0 0"
                         Name="Cadastrar"
-                        IsEnabled="False"
-                        Height="50"
-                        Margin="0,0,0,0"
                         Cursor="Hand"
+                        IsEnabled="False"
                         CommandParameter="{Binding}"
-                        Command="{Binding Novo}">
-                    <Button.Background>
-                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                            <GradientStop Color="#FF5BFF5B" Offset="0.0"/>
-                            <GradientStop Color="#FF00B400" Offset="1"/>
-                        </LinearGradientBrush>
-                    </Button.Background>
-                    <Button.Clip>
-                        <RectangleGeometry 
-                            RadiusX="10" 
-                            RadiusY="10"
-                            Rect="0,0,150,50"/>
-                    </Button.Clip>
-                    <Grid>
-                        <StackPanel>
-                            <TextBlock Text="Cadastrar"
-                                   Foreground="White"
-                                   FontSize="28"
-                                   Margin="5,5,5,5"
-                                   HorizontalAlignment="Center" />
-                        </StackPanel>
-                    </Grid>
-                </Button>
-            </StackPanel>
-
-            <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal">
-                <Button Margin="3"
+                        Command="{Binding Novo}"
+                        Content="Cadastrar" Background="#FF62C162"
+                        >
+                    </Button>
+                    <Button Margin="30 0 0 0"
+                        Width="63" 
+                        Height="30"
                         Padding="3"
                         CommandParameter="{Binding}"
                         Command="{Binding Editar}"
-                        Content="Editar"/>
-                <Button Margin="3" Padding="3" 
+                        Content="Editar" Background="#FFC5C6CB"/>
+                    <Button Margin="30 0 0 0"
+                        Width="63" 
+                        Height="30" 
+                        Padding="3" 
                         CommandParameter="{Binding}"
                         Command="{Binding Deletar}"
-                        Content="Deletar"/>
+                        Content="Deletar" Background="#FFE68282"/>
+                </StackPanel>
             </StackPanel>
             <ScrollViewer Grid.Column="1" Grid.Row="1"
                       HorizontalScrollBarVisibility="Hidden"

@@ -32,7 +32,7 @@ namespace WpfApp3.MVVM.CRUD
                 
                 if (pessoa.Nome == null || pessoa.Cpf == null || pessoa.Endereco == null || pessoa.Nome == "" || pessoa.Cpf == "" || pessoa.Endereco == "")
 
-                    MessageBox.Show("Por favor, preencha todos os campos!", "Atenção", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Todos os campos são obrigatórios!", "Atenção", MessageBoxButton.OK, MessageBoxImage.Error);
 
                 else if (!viewModel.PessoaEdit.Cpf.All(char.IsDigit) && !pessoa.Cpf.All(char.IsDigit))
                     MessageBox.Show("CPF precisa ser numérico!", "Atenção", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -54,7 +54,6 @@ namespace WpfApp3.MVVM.CRUD
                 {
                     outputFile.WriteLine(jsonString);
                 }               
-
             }
             
             else
@@ -65,10 +64,6 @@ namespace WpfApp3.MVVM.CRUD
                     outputFile.WriteLine(jsonString);
                 }
             }
-            
-
         }
-       
-
     }
 }
