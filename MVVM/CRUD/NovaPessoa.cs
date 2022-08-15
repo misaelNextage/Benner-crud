@@ -30,13 +30,35 @@ namespace WpfApp3.MVVM.CRUD
                 pessoa.Cpf = viewModel.PessoaEdit.Cpf != null ? System.Text.RegularExpressions.Regex.Replace(viewModel.PessoaEdit.Cpf, "[^0-9]", "") : viewModel.PessoaEdit.Cpf;
                 pessoa.Endereco = viewModel.PessoaEdit.Endereco;
 
-                if (pessoa.Nome == null || pessoa.Cpf == null || pessoa.Endereco == null || pessoa.Nome == "" || pessoa.Cpf == "" || pessoa.Endereco == "")
 
-                    MessageBox.Show("Todos os campos são obrigatórios!", "Atenção", MessageBoxButton.OK, MessageBoxImage.Error);
+                if (pessoa.Nome == null || pessoa.Nome == "")
+                {
 
+                    MessageBox.Show("Campo Nome obrigatório!", "Atenção", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+
+                }
+                else if (pessoa.Cpf == null || pessoa.Cpf == "")
+                {
+
+                    MessageBox.Show("Campo CPF obrigatório!", "Atenção", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+
+
+                }
                 else if (!viewModel.PessoaEdit.Cpf.All(char.IsDigit) && !pessoa.Cpf.All(char.IsDigit))
+                {
                     MessageBox.Show("CPF precisa ser numérico!", "Atenção", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
 
+                }
+                else if (!Util.Validacao.IsCpf(viewModel.PessoaEdit.Cpf.Replace(".","").Replace("-", "")))
+                {
+
+                    MessageBox.Show("CPF invalido!", "Atenção", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+
+                }
                 else if (pessoa.Cpf.Length < 11)
                     MessageBox.Show("Erro ao salvar o CPF, pois o campo CPF precisa conter 11 Digitos númericos.", "Atenção", MessageBoxButton.OK, MessageBoxImage.Warning);
                 else
@@ -65,5 +87,6 @@ namespace WpfApp3.MVVM.CRUD
                 }
             }
         }
+
     }
 }
