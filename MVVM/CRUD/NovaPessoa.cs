@@ -40,17 +40,17 @@ namespace WpfApp3.MVVM.CRUD
                 {
                     viewModel.Pessoas.Add(pessoa);
                     viewModel.PessoasSelecionado = pessoa;
+                    viewModel.PessoaEdit.Id = 0;
+                    viewModel.PessoaEdit.Nome = "";
+                    viewModel.PessoaEdit.Endereco = "";
+                    viewModel.PessoaEdit.Cpf = "";
                 }
 
                 string jsonString = JsonSerializer.Serialize(viewModel.Pessoas, new JsonSerializerOptions() { WriteIndented = true });
                 using (StreamWriter outputFile = new StreamWriter("pessoa.json"))
                 {
                     outputFile.WriteLine(jsonString);
-                }
-                viewModel.PessoaEdit.Id = 0;
-                viewModel.PessoaEdit.Nome = "";
-                viewModel.PessoaEdit.Endereco = "";
-                viewModel.PessoaEdit.Cpf = "";
+                }               
 
             }
             
