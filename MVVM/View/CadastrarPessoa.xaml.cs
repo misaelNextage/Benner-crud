@@ -43,5 +43,10 @@ namespace WpfApp3.MVVM.View
                 outputFile.Close();
             }
         }
+
+        private void Pesquisar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

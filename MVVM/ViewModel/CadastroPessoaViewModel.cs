@@ -1,8 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
+using WpfApp3.core;
+using WpfApp3.MVVM.crud;
 using WpfApp3.MVVM.CRUD;
 using WpfApp3.MVVM.Model;
 
@@ -15,6 +18,15 @@ namespace WpfApp3.MVVM.ViewModel
         public DeletarPessoa Deletar { get; private set; } = new DeletarPessoa();
 
         public EditarPessoa Editar { get; private set; } = new EditarPessoa();
+
+        public PesquisaPessoa Pesquisa { get; private set; } = new PesquisaPessoa();
+
+        private string _pesquisaText = "";
+        public string PesquisaText
+        {
+            get { return _pesquisaText; }
+            set { _pesquisaText = value; }
+        }
 
         private Pessoa _pessoaSelecionado;
         public Pessoa PessoasSelecionado
@@ -61,4 +73,42 @@ namespace WpfApp3.MVVM.ViewModel
         }
         public bool Edicao = false;
     }
+
+    class PesquisaPessoa : BaseCommand
+    {
+        public override bool CanExecute(object parameter)
+        {
+            return parameter is CadastroPessoaViewModel;
+        }
+
+        public override void Execute(object parameter)
+        {
+            var viewModel = (CadastroPessoaViewModel)parameter;
+
+            string text = viewModel.PesquisaText;
+
+            List<Pessoa> json = new List<Pessoa>();
+
+            using (StreamReader r = new StreamReader("pessoa.json"))
+            {
+                string jsonStr = r.ReadToEnd();
+                json = JsonSerializer.Deserialize<List<Pessoa>>(jsonStr);
+            }
+            viewModel.Pessoas.Clear();
+
+            json.ForEach(p =>
+            {
+                if (p.Nome != null && p.Nome.ToLower().Contains(text.ToLower()))
+                {
+                    viewModel.Pessoas.Add(p);
+                }
+            });
+
+            if (viewModel.Pessoas.Count > 0)
+            {
+                viewModel.PessoasSelecionado = viewModel.Pessoas.FirstOrDefault();
+            }
+        }
+    }
+
 }
