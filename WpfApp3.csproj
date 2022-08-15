@@ -176,6 +176,7 @@
     <None Include="packages.config" />
     <None Include="pessoa.json">
       <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="produto.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

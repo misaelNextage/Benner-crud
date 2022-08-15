@@ -67,8 +67,14 @@ namespace WpfApp3.MVVM.View
 
         private void Cpf_GotFocus(object sender, RoutedEventArgs e)
         {
-            Cpf.MaxLength = 11;
             Cpf.Text = System.Text.RegularExpressions.Regex.Replace(Cpf.Text, "[^0-9]","");
+        }
+
+        private void Cpf_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            var cpfDigitado = sender as TextBox;
+            Cpf.MaxLength = 11;
+            e.Handled = System.Text.RegularExpressions.Regex.IsMatch(e.Text, "[^0-9]+"); //permite só números
         }
     }
 }
