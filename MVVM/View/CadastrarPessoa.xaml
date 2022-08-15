@@ -49,6 +49,16 @@
                         Content="Deletar" Background="#FFE68282"/>
                 </StackPanel>
             </StackPanel>
+
+            <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal">
+
+                <Grid>
+                    <Label Content="Pesquisar" Margin="0,-8,10,-4"/>
+                    <TextBox Text="{Binding PesquisaText}" Name="pesquisar" Height="24" Margin="0,17,84,6" TextChanged="Pesquisar_TextChanged"/>
+                    <Button Content="Pesquisar" Margin="210,17,25,6" Height="24" CommandParameter="{Binding}" Command="{Binding Pesquisa}" Cursor="Hand"/>
+                </Grid>
+            </StackPanel>
+            
             <ScrollViewer Grid.Column="1"
                           Grid.Row="1"
                           HorizontalScrollBarVisibility="Visible"
