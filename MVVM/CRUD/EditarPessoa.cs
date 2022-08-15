@@ -22,7 +22,7 @@ namespace WpfApp3.MVVM.CRUD
 
             viewModel.PessoaEdit.Id = clonePessoa.Id;
             viewModel.PessoaEdit.Nome = clonePessoa.Nome;
-            viewModel.PessoaEdit.Cpf = clonePessoa.Cpf;
+            viewModel.PessoaEdit.Cpf = clonePessoa.Cpf != null ? System.Text.RegularExpressions.Regex.Replace(clonePessoa.Cpf, "[^0-9]", ""): clonePessoa.Cpf;
             viewModel.PessoaEdit.Endereco = clonePessoa.Endereco;
 
             viewModel.Pessoas.Clear();
