@@ -1,18 +1,16 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 
 namespace WpfApp3.MVVM.Model
 {
-    public class Produto : INotifyPropertyChanged, ICloneable, BaseNotifyPropertyChanged, INotifyDataErrorInfo
+    public class Produto : INotifyPropertyChanged, ICloneable, BaseNotifyPropertyChanged
     {
 
-
         public event PropertyChangedEventHandler PropertyChanged;
-        public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
-
+        // Esta rotina é chamada cada vez que o valor da propridade 
+        // for definida. Isso vai disparar um evento para notificar 
+        // a WPF via data binding que algo mudou
         private void OnPropertyChanged(string nomePropriedade)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nomePropriedade));
@@ -24,6 +22,8 @@ namespace WpfApp3.MVVM.Model
         }
 
         private long _id;
+
+        [Required]
         private string _nome;
         private int _codigo;
         private double _valor;
@@ -31,6 +31,7 @@ namespace WpfApp3.MVVM.Model
 
         public Produto() { }
 
+        [Key]
         public long Id
         {
             get { return _id; }
@@ -41,6 +42,7 @@ namespace WpfApp3.MVVM.Model
             }
         }
 
+        [Required]
         public string Nome
         {
             get { return _nome; }
@@ -48,10 +50,10 @@ namespace WpfApp3.MVVM.Model
             {
                 _nome = value;
                 OnPropertyChanged("Nome");
-                ValidateUserName();
             }
         }
 
+        [Required]
         public int Codigo
         {
             get { return _codigo; }
@@ -62,6 +64,7 @@ namespace WpfApp3.MVVM.Model
             }
         }
 
+        [Required]
         public double Valor
         {
             get { return _valor; }
@@ -69,52 +72,6 @@ namespace WpfApp3.MVVM.Model
             {
                 _valor = value;
                 OnPropertyChanged("Valor");
-            }
-        }
-
-        public bool HasErrors => _errorsByPropertyName.Any();
-
-
-        private readonly Dictionary<string, List<string>> _errorsByPropertyName = new Dictionary<string, List<string>>();
-
-        public IEnumerable GetErrors(string propertyName)
-        {
-            return _errorsByPropertyName.ContainsKey(propertyName) ?
-           _errorsByPropertyName[propertyName] : null;
-        }
-
-        private void OnErrorsChanged(string propertyName)
-        {
-            ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
-        }
-
-        private void ValidateUserName()
-        {
-            ClearErrors(nameof(Nome));
-            if (string.IsNullOrWhiteSpace(Nome))
-                AddError(nameof(Nome), "Campo obrigatório");
-            if (Nome == null || Nome?.Length < 3)
-                AddError(nameof(Nome), "Mínimo de 3 catacteres");
-        }
-
-        private void AddError(string propertyName, string error)
-        {
-            if (!_errorsByPropertyName.ContainsKey(propertyName))
-                _errorsByPropertyName[propertyName] = new List<string>();
-
-            if (!_errorsByPropertyName[propertyName].Contains(error))
-            {
-                _errorsByPropertyName[propertyName].Add(error);
-                OnErrorsChanged(propertyName);
-            }
-        }
-
-        private void ClearErrors(string propertyName)
-        {
-            if (_errorsByPropertyName.ContainsKey(propertyName))
-            {
-                _errorsByPropertyName.Remove(propertyName);
-                OnErrorsChanged(propertyName);
             }
         }
     }

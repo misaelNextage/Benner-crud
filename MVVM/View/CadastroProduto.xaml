@@ -3,13 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              xmlns:local="clr-namespace:WpfApp3.MVVM.View"
              xmlns:viewModel="clr-namespace:WpfApp3.MVVM.ViewModel"
              xmlns:model="clr-namespace:WpfApp3.MVVM.Model"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-   
-  
+
     <StackPanel Margin="20">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -21,81 +21,73 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <StackPanel Grid.Column="0" Grid.Row="1" Margin="6" Orientation="Vertical">
-                <Label Content="Nome do Produto" />
-                <TextBox Text="{Binding ProdutoEdit.Nome, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" 
-                         Name="nomeProduto" 
-                         Width="250" 
-                         Height="20" 
-                         HorizontalAlignment="Left" 
-                         Margin="0,0,0,20" TextChanged="NomeProduto_TextChanged">
-                    <Validation.ErrorTemplate>
-                        <ControlTemplate>
-                            <StackPanel>
-                                <AdornedElementPlaceholder x:Name="textBox" />
-                                <ItemsControl ItemsSource="{Binding}">
-                                    <ItemsControl.ItemTemplate>
-                                        <DataTemplate>
-                                            <TextBlock Text="{Binding ErrorContent}" />
-                                        </DataTemplate>
-                                    </ItemsControl.ItemTemplate>
-                                </ItemsControl>
-                            </StackPanel>
-                        </ControlTemplate>
-                    </Validation.ErrorTemplate>
-                </TextBox>
-                <Label Content="Codigo do Produto" />
-                <TextBox Text="{Binding ProdutoEdit.Codigo}" 
-                         Name="codigoProduto" 
-                         Width="250" 
-                         Height="20" 
-                         HorizontalAlignment="Left" 
-                         Margin="0,0,0,20"/>
-                <Label Content="Valor do Produto" />
-                <TextBox Text="{Binding ProdutoEdit.Valor}" Name="valorProduto" Width="250" Height="20" HorizontalAlignment="Left" Margin="0,0,0,20"/>
-                <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal">
-                    <Button Width="63" 
-                        Height="30"
-                        Margin="0 0 0 0"
-                        Name="Cadastrar"
+                <Label Content="Nome do Produto" Margin="20,0,17,0" />
+                <TextBox Text="{Binding  ProdutoEdit.Nome}" Name="nomeProduto" Height="24"   Margin="20,0,17,20"/>
+                <Label Content="Codigo do Produto" Margin="20,0,17,0" />
+                <TextBox Text="{Binding ProdutoEdit.Codigo}" Name="codigoProduto" Height="24" Margin="20,0,17,20" TextAlignment="Left"/>
+                <Label Content="Valor do Produto" Margin="20,0,17,0" />
+                <TextBox Text="{Binding ProdutoEdit.Valor}" Name="valorProduto" Height="24" Margin="20,0,17,20" TextAlignment="Left"/>
+                <Button 
+                        Height="24"
+                        Margin="206,3,17,3"
+                        Padding="3"
                         Cursor="Hand"
-                        IsEnabled="False"
+                        RenderTransformOrigin="0.5,0.5"
                         CommandParameter="{Binding}"
                         Command="{Binding Novo}"
-                        Content="Cadastrar" Background="#FF62C162"
-                        >
-                    </Button>
-                    <Button Margin="30 0 0 0"
-                        Width="63" 
-                        Height="30"
-                        Padding="3"
-                        CommandParameter="{Binding}"
-                        Command="{Binding Editar}"
-                        Content="Editar" Background="#FFC5C6CB"/>
-                    <Button Margin="30 0 0 0"
-                        Width="63" 
-                        Height="30" 
-                        Padding="3" 
-                        CommandParameter="{Binding}"
-                        Command="{Binding Deletar}"
-                        Content="Deletar" Background="#FFE68282"/>
-                </StackPanel>
+                        Content="Salvar" Background="#FF4CD64C"/>
             </StackPanel>
+
+            <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal">
+
+                <Grid>
+                    <Label Content="Pesquisar" Margin="0,-11,0,-1"/>
+                    <TextBox Text="{Binding PesquisaText}" Name="pesquisar" Height="24" Margin="0,13,50,10"/>
+                    <Button Content="Pesquisar" Margin="244,13,-9,10" Height="24" CommandParameter="{Binding}" Command="{Binding Pesquisa}" Cursor="Hand"/>
+                </Grid>
+            </StackPanel>
+
+
             <ScrollViewer Grid.Column="1" Grid.Row="1"
                       HorizontalScrollBarVisibility="Hidden"
-                      VerticalScrollBarVisibility="Visible">
+                      VerticalScrollBarVisibility="Visible" Margin="0,0,10,10">
                 <DataGrid ItemsSource="{Binding Produtos}"
                                 AutoGenerateColumns="False"
                                 IsReadOnly="True"
                                 Name="datagridProdutos"
-                                SelectedItem="{Binding ProdutoSelecionado}" SelectionMode="Single">
+                                SelectedItem="{Binding ProdutoSelecionado}" Width="365">
+                    <DataGrid.CellStyle>
+                        <Style TargetType="DataGridCell" >
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="SeaGreen"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.CellStyle>
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
-                        <DataGridTextColumn Header="Nome" Binding="{Binding Nome}"/>
-                        <DataGridTextColumn Header="Codigo" Binding="{Binding Codigo}"/>
-                        <DataGridTextColumn Header="Valor" Binding="{Binding Valor}"/>
+                        <DataGridTextColumn Header="Nome" Binding="{Binding Nome}" Width="150"/>
+                        <DataGridTextColumn Header="Código" Binding="{Binding Codigo}" Width="60"/>
+                        <DataGridTextColumn Header="Valor"  Binding="{Binding Valor}" Width="60" TextOptions.TextRenderingMode="ClearType"/>
                     </DataGrid.Columns>
+
                 </DataGrid>
+
             </ScrollViewer>
+            <StackPanel Grid.Column="1" Margin="175,285,10,-30" Grid.Row="1" >
+                <Button Margin="10,3,42,3" Padding="3" 
+                        CommandParameter="{Binding}"
+                        Command="{Binding Deletar}"
+                        Content="Deletar" Background="#FFC54242" RenderTransformOrigin="0.65,0.542"/>
+            </StackPanel>
+            <StackPanel Margin="1,285,200,-30" Grid.Row="1" Grid.Column="1">
+                <Button Margin="18,3,16,3"
+                        Padding="3"
+                        CommandParameter="{Binding}"
+                        Command="{Binding Editar}"
+                        Content="Editar" RenderTransformOrigin="0.5,0.5" Height="24" Background="#FF5F64CB"/>
+            </StackPanel>
         </Grid>
     </StackPanel>
 </UserControl>

@@ -136,6 +136,7 @@
     <Compile Include="MVVM\CRUD\EditarProduto.cs" />
     <Compile Include="MVVM\CRUD\NovaPessoa.cs" />
     <Compile Include="MVVM\CRUD\PesquisarPessoa.cs" />
+    <Compile Include="MVVM\CRUD\PesquisarProduto.cs" />
     <Compile Include="MVVM\Model\BaseNotifyPropertyChanged.cs" />
     <Compile Include="MVVM\Model\Pedido.cs" />
     <Compile Include="MVVM\Model\Pessoa.cs" />
