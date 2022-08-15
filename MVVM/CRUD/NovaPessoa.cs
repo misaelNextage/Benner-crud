@@ -31,11 +31,8 @@ namespace WpfApp3.MVVM.CRUD
                     pessoa.Endereco = viewModel.PessoaEdit.Endereco;
                 if (!viewModel.PessoaEdit.Cpf.All(char.IsDigit))
                     MessageBox.Show("Obrigatório ser números", "Atenção", MessageBoxButton.OK, MessageBoxImage.Error);
-                else
-                {
-                    FormatCPF(viewModel.PessoaEdit.Cpf);
-                }
-                    if (pessoa.Nome == null || pessoa.Cpf == null || pessoa.Endereco == null || pessoa.Nome == "" || pessoa.Cpf == "" || pessoa.Endereco == "")
+                
+                else if (pessoa.Nome == null || pessoa.Cpf == null || pessoa.Endereco == null || pessoa.Nome == "" || pessoa.Cpf == "" || pessoa.Endereco == "")
 
                     MessageBox.Show("Por favor, preencha todos os campos!", "Atenção", MessageBoxButton.OK, MessageBoxImage.Error);
                 else
