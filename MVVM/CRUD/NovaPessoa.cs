@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 using System.Text.Json;
 using System.Windows;
@@ -24,12 +23,13 @@ namespace WpfApp3.MVVM.CRUD
             {
                 maxId = viewModel.Pessoas.Max(f => f.Id);
             }
-            if(viewModel.Edicao == false) {
-                    pessoa.Id = maxId + 1;
-                    pessoa.Nome = viewModel.PessoaEdit.Nome;
-                    pessoa.Cpf = viewModel.PessoaEdit.Cpf != null ? System.Text.RegularExpressions.Regex.Replace(viewModel.PessoaEdit.Cpf, "[^0-9]", "") : viewModel.PessoaEdit.Cpf;
-                    pessoa.Endereco = viewModel.PessoaEdit.Endereco;
-                
+            if (viewModel.Edicao == false)
+            {
+                pessoa.Id = maxId + 1;
+                pessoa.Nome = viewModel.PessoaEdit.Nome;
+                pessoa.Cpf = viewModel.PessoaEdit.Cpf != null ? System.Text.RegularExpressions.Regex.Replace(viewModel.PessoaEdit.Cpf, "[^0-9]", "") : viewModel.PessoaEdit.Cpf;
+                pessoa.Endereco = viewModel.PessoaEdit.Endereco;
+
                 if (pessoa.Nome == null || pessoa.Cpf == null || pessoa.Endereco == null || pessoa.Nome == "" || pessoa.Cpf == "" || pessoa.Endereco == "")
 
                     MessageBox.Show("Todos os campos são obrigatórios!", "Atenção", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -53,9 +53,9 @@ namespace WpfApp3.MVVM.CRUD
                 using (StreamWriter outputFile = new StreamWriter("pessoa.json"))
                 {
                     outputFile.WriteLine(jsonString);
-                }               
+                }
             }
-            
+
             else
             {
                 string jsonString = JsonSerializer.Serialize(viewModel.Pessoas, new JsonSerializerOptions() { WriteIndented = true });

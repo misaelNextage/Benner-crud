@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 using System.Text.Json;
 using System.Windows;
@@ -54,10 +53,11 @@ namespace WpfApp3.MVVM.ViewModel
                 if (produto.Nome.Length == 0 || produto.Valor <= 0 || produto.Codigo <= 0)
 
                     MessageBox.Show("Por favor, preencha todos os campos!");
-                    
-                else{
-                viewModel.Produtos.Add(produto);
-                viewModel.ProdutoSelecionado = produto;               
+
+                else
+                {
+                    viewModel.Produtos.Add(produto);
+                    viewModel.ProdutoSelecionado = produto;
                 }
             }
 

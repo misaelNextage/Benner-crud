@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WpfApp3.core;
+﻿using WpfApp3.core;
 
 namespace WpfApp3.MVVM.ViewModel
 {
@@ -24,7 +19,8 @@ namespace WpfApp3.MVVM.ViewModel
         {
             get { return _currentView; }
             set
-            { _currentView = value;
+            {
+                _currentView = value;
                 OnPropertyChanged();
             }
         }

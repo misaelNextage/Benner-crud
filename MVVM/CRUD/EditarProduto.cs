@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
-using WpfApp3.core;
-using WpfApp3.MVVM.Model;
+﻿using WpfApp3.core;
 using WpfApp3.MVVM.ViewModel;
 
 namespace WpfApp3.MVVM.crud
