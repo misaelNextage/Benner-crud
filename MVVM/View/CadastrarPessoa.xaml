@@ -34,6 +34,7 @@
                         Content="Cadastrar" Background="#FF62C162"
                        />
                 </StackPanel>
+              
             </StackPanel>
 
             <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal">
@@ -75,17 +76,20 @@
             <DataGrid Grid.Column="1" Margin="2,222,0,114" Grid.Row="1"
                       ItemsSource="{Binding PedidosFiltrados}"
                       AutoGenerateColumns="False"
+                      Height="136"
+                      Width="320"
                       IsReadOnly="True"
                       Name="datagridPed"
-                      SelectedItem="{Binding PedidosSelecionado}" SelectionMode="Single" HorizontalAlignment="Left" Width="299">
+                      SelectedItem="{Binding PedidosSelecionado}" SelectionMode="Single" HorizontalAlignment="Left">
+              
                 <DataGrid.Columns>
 
                     <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="Valor total" Binding="{Binding ValorTotal}"/>
-                    <!--<DataGridTextColumn Header="Status" Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="Data venda" Binding="{Binding Id}"/>
-                    <DataGridTextColumn Header="Forma pagamento" Binding="{Binding Id}"/>-->
-
+                    <DataGridTextColumn Header="Forma pagamento" Binding="{Binding Id}"/>
+                    <DataGridTextColumn Header="Status" Binding="{Binding Id}"/>
+                    
                 </DataGrid.Columns>
             </DataGrid>
             <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="1,131,30,275" Grid.Column="1">
