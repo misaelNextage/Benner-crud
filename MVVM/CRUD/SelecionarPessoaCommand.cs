@@ -33,8 +33,6 @@ namespace WpfApp3.MVVM.CRUD
             {
                 viewModel.PedidosFiltrados.Add(elm);
             }
-
-
             //viewModel.PessoaEdit.Id = clonePessoa.Id;
             //viewModel.PessoaEdit.Nome = clonePessoa.Nome;
             //viewModel.PessoaEdit.Cpf = clonePessoa.Cpf != null ? System.Text.RegularExpressions.Regex.Replace(clonePessoa.Cpf, "[^0-9]", ""): clonePessoa.Cpf;

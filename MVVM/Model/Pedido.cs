@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 
 namespace WpfApp3.MVVM.Model
 {
@@ -17,7 +16,22 @@ namespace WpfApp3.MVVM.Model
         private long _id;
         private Pessoa _pessoa;
         private Double _valorTotal;
-       
+        private DateTime _dataPagamento;
+        public enum status
+        {
+            Pendente,
+            Pago,
+            Enviado,
+            Recebido
+        }
+
+
+        public enum pagamento
+        {
+            Dinheiro,
+            Cartao,
+            Boleto
+        }
 
         public Pedido() { }
 
@@ -27,7 +41,6 @@ namespace WpfApp3.MVVM.Model
         }
 
 
-        [Key]
         public long Id
         {
             get { return _id; }
@@ -38,7 +51,6 @@ namespace WpfApp3.MVVM.Model
             }
         }
 
-        [Required]
         public Pessoa Pessoa
         {
             get { return _pessoa; }
@@ -49,7 +61,6 @@ namespace WpfApp3.MVVM.Model
             }
         }
 
-        [Required]
         public Double ValorTotal
         {
             get { return _valorTotal; }
@@ -59,6 +70,14 @@ namespace WpfApp3.MVVM.Model
                 OnPropertyChanged("ValorTotal");
             }
         }
-
+        public DateTime DataPagamento
+        {
+            get { return _dataPagamento; }
+            set
+            {
+                _dataPagamento = value;
+                OnPropertyChanged("DataPagamento");
+            }
+        }
     }
 }
