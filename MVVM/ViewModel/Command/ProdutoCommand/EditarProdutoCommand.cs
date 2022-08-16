@@ -3,7 +3,7 @@ using WpfApp3.MVVM.ViewModel;
 
 namespace WpfApp3.MVVM.crud
 {
-    class EditarProduto : BaseCommand
+    class EditarProdutoCommand : BaseCommand
     {
         public override bool CanExecute(object parameter)
         {

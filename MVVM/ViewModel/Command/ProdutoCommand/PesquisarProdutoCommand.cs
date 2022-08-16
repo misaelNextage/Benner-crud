@@ -5,7 +5,7 @@ using WpfApp3.core;
 
 namespace WpfApp3.MVVM.ViewModel
 {
-    class PesquisarProduto : BaseCommand
+    class PesquisarProdutoCommand : BaseCommand
     {
         public override bool CanExecute(object parameter)
         {

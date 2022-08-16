@@ -14,7 +14,7 @@
             <DataTemplate DataType="{x:Type viewModel:ProdutoViewModel}">
                 <view:CadastroProduto/>
             </DataTemplate>
-            <DataTemplate DataType="{x:Type viewModel:CadastroPessoaViewModel}">
+            <DataTemplate DataType="{x:Type viewModel:PessoaViewModel}">
                 <view:CadastrarPessoa/>
             </DataTemplate>
             <DataTemplate DataType="{x:Type viewModel:PedidoViewModel}">

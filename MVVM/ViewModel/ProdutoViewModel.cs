@@ -13,11 +13,11 @@ namespace WpfApp3.MVVM.ViewModel
     {
         private Produto _produtoSelecionado;
 
-        public NovoProduto Novo { get; private set; } = new NovoProduto();
+        public NovoProdutoCommand Novo { get; private set; } = new NovoProdutoCommand();
 
-        public DeletarProduto Deletar { get; private set; } = new DeletarProduto();
+        public DeletarProdutoCommand Deletar { get; private set; } = new DeletarProdutoCommand();
 
-        public EditarProduto Editar { get; private set; } = new EditarProduto();
+        public EditarProdutoCommand Editar { get; private set; } = new EditarProdutoCommand();
 
         private Produto _produtoEdit = new Produto();
 
