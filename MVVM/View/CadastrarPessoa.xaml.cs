@@ -76,5 +76,6 @@ namespace WpfApp3.MVVM.View
             Cpf.MaxLength = 11;
             e.Handled = System.Text.RegularExpressions.Regex.IsMatch(e.Text, "[^0-9]+"); //permite só números
         }
+
     }
 }

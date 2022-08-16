@@ -1,44 +1,64 @@
 ﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace WpfApp3.MVVM.Model
 {
-    class Pedido
+    class Pedido : INotifyPropertyChanged, ICloneable, BaseNotifyPropertyChanged
     {
-        Pedido() { }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyChanged(string nomePropriedade)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nomePropriedade));
+        }
+
+
+        private long _id;
+        private Pessoa _pessoa;
+        private Double _valorTotal;
+       
+
+        public Pedido() { }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
+
 
         [Key]
-        private long Id { get; }
-
-        [Required]
-        private Pessoa Pessoa { get; set; }
-
-        [Required]
-        private Produto Produto { get; set; }
-
-
-        private double ValorTotal { get; set; }
-
-        private DateTime DataVenda { get; set; }
-
-        [Required]
-        private FormaPagamentoEnum FormaPagamento { get; set; }
-
-        private StatusEnum Status { get; set; }
-
-        private enum FormaPagamentoEnum
+        public long Id
         {
-            Dinheiro,
-            Cartao,
-            Boleto
+            get { return _id; }
+            set
+            {
+                _id = value;
+                OnPropertyChanged("Id");
+            }
         }
 
-        private enum StatusEnum
+        [Required]
+        public Pessoa Pessoa
         {
-            Pendente,
-            Pago,
-            Enviado,
-            Recebido
+            get { return _pessoa; }
+            set
+            {
+                _pessoa = value;
+                OnPropertyChanged("Pessoa");
+            }
         }
+
+        [Required]
+        public Double ValorTotal
+        {
+            get { return _valorTotal; }
+            set
+            {
+                _valorTotal = value;
+                OnPropertyChanged("ValorTotal");
+            }
+        }
+
     }
 }
