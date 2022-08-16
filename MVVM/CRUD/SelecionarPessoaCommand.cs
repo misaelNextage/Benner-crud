@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text.Json;
+using System.Windows;
 using WpfApp3.core;
 using WpfApp3.MVVM.Model;
 using WpfApp3.MVVM.ViewModel;
@@ -26,8 +23,11 @@ namespace WpfApp3.MVVM.CRUD
 
             IEnumerable<Pedido> pedidos = from pedido in viewModel.TodosPedidos
                                           where pedido.Pessoa.Id == clonePessoa.Id
-                                            select pedido;
-
+                                          select pedido;
+            if(pedidos.Any() == false)
+            {
+                MessageBox.Show("Esse cliente não possui pedidos.", "Atenção", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
             viewModel.PedidosFiltrados.Clear();
             foreach (Pedido elm in pedidos)
             {

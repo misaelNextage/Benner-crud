@@ -67,7 +67,7 @@
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectionChanged">
                             <i:InvokeCommandAction 
-                        CommandParameter="{Binding}"
+                                CommandParameter="{Binding}"
                                 Command="{Binding SelecionarPessoaCommand}" />
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
