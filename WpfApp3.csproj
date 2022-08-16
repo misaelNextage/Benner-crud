@@ -104,6 +104,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MVVM\CRUD\FiltrarStatusPedidosCommand.cs" />
     <Compile Include="MVVM\CRUD\SelecionarPessoaCommand.cs" />
     <Compile Include="Util\Validacao.cs" />
     <Page Include="MainWindow.xaml">

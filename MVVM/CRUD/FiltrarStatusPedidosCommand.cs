@@ -7,10 +7,12 @@ using System.Text.Json;
 using WpfApp3.core;
 using WpfApp3.MVVM.Model;
 using WpfApp3.MVVM.ViewModel;
+using System.Windows.Controls;
+using WpfApp3.MVVM.View;
 
 namespace WpfApp3.MVVM.CRUD
 {
-    class SelecionarPessoaCommad : BaseCommand
+    class FiltrarStatusPedidosCommand : BaseCommand
     {
         public override bool CanExecute(object parameter)
         {
@@ -19,19 +21,17 @@ namespace WpfApp3.MVVM.CRUD
         }
 
         public override void Execute(object parameter)
-        {
+        {            
             var viewModel = (CadastroPessoaViewModel)parameter;
 
-            var clonePessoa = (Model.Pessoa)viewModel.PessoasSelecionado.Clone();
-
-            IEnumerable<Pedido> pedidos = from pedido in viewModel.TodosPedidos
-                                          where pedido.Pessoa.Id == clonePessoa.Id
-                                            select pedido;
-
             viewModel.PedidosFiltrados.Clear();
-            foreach (Pedido elm in pedidos)
+            foreach (Pedido pedido in viewModel.TodosPedidos)
             {
-                viewModel.PedidosFiltrados.Add(elm);
+                if (pedido.StatusPedido.Equals(CadastrarPessoa.nomeBotaoFiltro))
+                {
+                    viewModel.PedidosFiltrados.Add(pedido);
+                }
+
             }         
 
         }

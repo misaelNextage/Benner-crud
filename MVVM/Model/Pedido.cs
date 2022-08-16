@@ -19,12 +19,12 @@ namespace WpfApp3.MVVM.Model
         private String _dataVenda;
         private String _statusPedido;
         private String _formaPagamento;
-        private enum _status
+        public enum _status
         {
-            Pendente,
-            Pago,
-            Enviado,
-            Recebido
+            PENDENTE,
+            PAGO,
+            ENVIADO,
+            RECEBIDO
         }
 
 

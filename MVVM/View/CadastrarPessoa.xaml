@@ -57,6 +57,7 @@
                           Width="292"
                       Name="datagridPessoas"
                       SelectedItem="{Binding PessoasSelecionado}"
+                          
                           SelectionMode="Single" >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
@@ -120,34 +121,37 @@
             </StackPanel>
             <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="337,351,-2,55" Grid.ColumnSpan="2">
                 <Button Margin="5,19,0,19"
+                    Name="RECEBIDO"
                     Width="63" 
                     Height="30"
                     Padding="3"
                     Cursor="Hand"
-                    CommandParameter="{Binding}"
-                    Command="{Binding }"    
-                    Content="Entregues" Background="#FF4DCF5F"
-                    ToolTip="Filtrar Pedidos Entregues"
+                    CommandParameter="{Binding }"
+                    Command="{Binding filtrarStatusPedidos}"    
+                    Content="Entregue" Background="#FF4DCF5F"
+                    ToolTip="Filtrar Pedidos Entregues" Click="FiltroEnviado"
                         />
                 <Button Margin="10,19,0,19"
+                    Name="PENDENTE"
                     Width="80" 
                     Height="30" 
                     Padding="3" 
                     Cursor="Hand"
                     CommandParameter="{Binding}"
-                    Command="{Binding }"
+                    Command="{Binding filtrarStatusPedidos }"
                     Content="Aguardando" Background="#FFE68282"
-                    ToolTip="Filtrar Pedidos Aguardando"
+                    ToolTip="Filtrar pedidos que estão aguardando pagamento" Click="FiltroEnviado"
                         />
                 <Button Margin="10 0 0 0"
+                    Name="PAGO"
                     Width="85" 
                     Height="30" 
                     Padding="3" 
                     Cursor="Hand"
                     CommandParameter="{Binding}"
-                    Command="{Binding }"
-                    Content="Pagos" Background="#FFFF00"
-                    ToolTip="Filtrar Pedidos Pagos"/>
+                    Command="{Binding filtrarStatusPedidos }"
+                    Content="Pago" Background="#FFFF00"
+                    ToolTip="Filtrar Pedidos Pagos" Click="FiltroEnviado"/>
             </StackPanel>
         </Grid>
     </StackPanel>

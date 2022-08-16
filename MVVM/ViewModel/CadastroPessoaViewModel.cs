@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using WpfApp3.core;
 using WpfApp3.MVVM.CRUD;
 using WpfApp3.MVVM.Model;
+using WpfApp3.MVVM.View;
 
 namespace WpfApp3.MVVM.ViewModel
 {
@@ -26,6 +27,8 @@ namespace WpfApp3.MVVM.ViewModel
         public PesquisaPessoa Pesquisa { get; private set; } = new PesquisaPessoa();
 
         public SelecionarPessoaCommad SelecionarPessoaCommand { get; private set; } = new SelecionarPessoaCommad();
+
+        public FiltrarStatusPedidosCommand filtrarStatusPedidos { get; private set; } = new FiltrarStatusPedidosCommand();
 
         public bool Edicao = false;
 

@@ -12,6 +12,7 @@ namespace WpfApp3.MVVM.View
     /// </summary>
     public partial class CadastrarPessoa : UserControl
     {
+        public static string nomeBotaoFiltro = "";
         public CadastrarPessoa()
         {
             InitializeComponent();
@@ -77,5 +78,10 @@ namespace WpfApp3.MVVM.View
             e.Handled = System.Text.RegularExpressions.Regex.IsMatch(e.Text, "[^0-9]+"); //permite só números
         }
 
+        private void FiltroEnviado(object sender, RoutedEventArgs e)
+        {
+            Button enviado = sender as Button;
+            nomeBotaoFiltro = enviado.Name.ToUpper();
+        }
     }
 }
