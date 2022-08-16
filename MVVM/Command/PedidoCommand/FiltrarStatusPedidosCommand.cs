@@ -16,13 +16,13 @@ namespace WpfApp3.MVVM.CRUD
     {
         public override bool CanExecute(object parameter)
         {
-            var viewModel = parameter as CadastroPessoaViewModel;
+            var viewModel = parameter as PessoaViewModel;
             return viewModel != null && viewModel.PessoasSelecionado != null;
         }
 
         public override void Execute(object parameter)
         {            
-            var viewModel = (CadastroPessoaViewModel)parameter;
+            var viewModel = (PessoaViewModel)parameter;
 
             viewModel.PedidosFiltrados.Clear();
             foreach (Pedido pedido in viewModel.TodosPedidos)
