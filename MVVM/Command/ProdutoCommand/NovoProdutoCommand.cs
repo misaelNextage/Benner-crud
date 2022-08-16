@@ -7,7 +7,7 @@ using WpfApp3.MVVM.Model;
 
 namespace WpfApp3.MVVM.ViewModel
 {
-    class NovoProduto : BaseCommand
+    class NovoProdutoCommand : BaseCommand
     {
         public override bool CanExecute(object parameter)
         {

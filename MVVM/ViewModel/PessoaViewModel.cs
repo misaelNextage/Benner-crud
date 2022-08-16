@@ -11,7 +11,7 @@ using WpfApp3.MVVM.View;
 
 namespace WpfApp3.MVVM.ViewModel
 {
-    class CadastroPessoaViewModel : ObservableCollection<Pessoa>
+    class PessoaViewModel : ObservableCollection<Pessoa>
     {
         public Pessoa Pessoa { get; internal set; }
         public ObservableCollection<Pessoa> Pessoas { get; private set; }
@@ -20,9 +20,9 @@ namespace WpfApp3.MVVM.ViewModel
 
         public ObservableCollection<Pedido> PedidosFiltrados { get; set; } = new ObservableCollection<Pedido>();
 
-        public DeletarPessoa Deletar { get; private set; } = new DeletarPessoa();
+        public DeletarPessoaCommand Deletar { get; private set; } = new DeletarPessoaCommand();
 
-        public EditarPessoa Editar { get; private set; } = new EditarPessoa();
+        public EditarPessoaCommand Editar { get; private set; } = new EditarPessoaCommand();
 
         public PesquisaPessoa Pesquisa { get; private set; } = new PesquisaPessoa();
 
@@ -32,7 +32,7 @@ namespace WpfApp3.MVVM.ViewModel
 
         public bool Edicao = false;
 
-        public CadastroPessoaViewModel()
+        public PessoaViewModel()
         {
             Pessoas = new ObservableCollection<Pessoa>();
             PreparaPessoaCollection();
@@ -61,7 +61,7 @@ namespace WpfApp3.MVVM.ViewModel
         }
 
 
-        public NovaPessoa Novo { get; private set; } = new NovaPessoa();
+        public NovaPessoaCommand Novo { get; private set; } = new NovaPessoaCommand();
 
 
         public void PreparaPessoaCollection()
@@ -109,12 +109,12 @@ namespace WpfApp3.MVVM.ViewModel
     {
         public override bool CanExecute(object parameter)
         {
-            return parameter is CadastroPessoaViewModel;
+            return parameter is PessoaViewModel;
         }
 
         public override void Execute(object parameter)
         {
-            var viewModel = (CadastroPessoaViewModel)parameter;
+            var viewModel = (PessoaViewModel)parameter;
 
             string text = viewModel.PesquisaText;
 

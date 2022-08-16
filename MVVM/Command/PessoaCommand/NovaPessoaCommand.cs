@@ -7,16 +7,16 @@ using WpfApp3.MVVM.ViewModel;
 
 namespace WpfApp3.MVVM.CRUD
 {
-    class NovaPessoa : BaseCommand
+    class NovaPessoaCommand : BaseCommand
     {
         public override bool CanExecute(object parameter)
         {
-            return parameter is CadastroPessoaViewModel;
+            return parameter is PessoaViewModel;
         }
 
         public override void Execute(object parameter)
         {
-            var viewModel = (CadastroPessoaViewModel)parameter;
+            var viewModel = (PessoaViewModel)parameter;
             var pessoa = new Model.Pessoa();
             long maxId = 0;
             if (viewModel.Pessoas.Any())
