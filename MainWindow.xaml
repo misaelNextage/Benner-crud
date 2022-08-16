@@ -51,10 +51,6 @@
                              FontSize="14"
                              Style="{StaticResource BotoesLaterais}"
                              Command="{Binding CadastroPessoaViewCommand}"/>
-                <RadioButton Content="Relatório de Vendas"
-                             Height="50"
-                             FontSize="14"
-                             Style="{StaticResource BotoesLaterais}"/>
             </StackPanel>
             <StackPanel Grid.Row="0" Grid.Column="1" Background="AliceBlue"/>
             <StackPanel Grid.Row="1" Grid.Column="1"

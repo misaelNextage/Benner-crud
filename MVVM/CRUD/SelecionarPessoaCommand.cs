@@ -28,7 +28,7 @@ namespace WpfApp3.MVVM.CRUD
                                           where pedido.Pessoa.Id == clonePessoa.Id
                                             select pedido;
 
-
+            viewModel.PedidosFiltrados.Clear();
             foreach (Pedido elm in pedidos)
             {
                 viewModel.PedidosFiltrados.Add(elm);
