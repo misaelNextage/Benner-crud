@@ -86,9 +86,9 @@
 
                     <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="Valor total" Binding="{Binding ValorTotal}"/>
-                    <DataGridTextColumn Header="Data venda" Binding="{Binding Id}"/>
-                    <DataGridTextColumn Header="Forma pagamento" Binding="{Binding Id}"/>
-                    <DataGridTextColumn Header="Status" Binding="{Binding Id}"/>
+                    <DataGridTextColumn Header="Data venda" Binding="{Binding DataVenda}"/>
+                    <DataGridTextColumn Header="Forma pagamento" Binding="{Binding FormaPagamentoPedido}"/>
+                    <DataGridTextColumn Header="Status" Binding="{Binding StatusPedido}"/>
                     
                 </DataGrid.Columns>
             </DataGrid>
