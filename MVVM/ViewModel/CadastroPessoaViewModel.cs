@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
+using System.Windows.Controls;
 using WpfApp3.core;
 using WpfApp3.MVVM.CRUD;
 using WpfApp3.MVVM.Model;
@@ -13,11 +14,27 @@ namespace WpfApp3.MVVM.ViewModel
     {
         public Pessoa Pessoa { get; internal set; }
         public ObservableCollection<Pessoa> Pessoas { get; private set; }
+
+        public ObservableCollection<Pedido> TodosPedidos { get; private set; } = new ObservableCollection<Pedido>();
+
+        public ObservableCollection<Pedido> PedidosFiltrados { get; set; } = new ObservableCollection<Pedido>();
+
         public DeletarPessoa Deletar { get; private set; } = new DeletarPessoa();
 
         public EditarPessoa Editar { get; private set; } = new EditarPessoa();
 
         public PesquisaPessoa Pesquisa { get; private set; } = new PesquisaPessoa();
+
+        public SelecionarPessoaCommad SelecionarPessoaCommand { get; private set; } = new SelecionarPessoaCommad();
+
+        public bool Edicao = false;
+
+        public CadastroPessoaViewModel()
+        {
+            Pessoas = new ObservableCollection<Pessoa>();
+            PreparaPessoaCollection();
+            PreparaPedidoCollection();
+        }
 
         private string _pesquisaText = "";
         public string PesquisaText
@@ -43,11 +60,6 @@ namespace WpfApp3.MVVM.ViewModel
 
         public NovaPessoa Novo { get; private set; } = new NovaPessoa();
 
-        public CadastroPessoaViewModel()
-        {
-            Pessoas = new ObservableCollection<Pessoa>();
-            PreparaPessoaCollection();
-        }
 
         public void PreparaPessoaCollection()
         {
@@ -69,7 +81,25 @@ namespace WpfApp3.MVVM.ViewModel
                 PessoasSelecionado = Pessoas.FirstOrDefault();
             }
         }
-        public bool Edicao = false;
+
+
+
+        public void PreparaPedidoCollection()
+        {
+            List<Pedido> source = new List<Pedido>();
+
+            using (StreamReader r = new StreamReader("pedido.json"))
+            {
+                string json = r.ReadToEnd();
+                source = JsonSerializer.Deserialize<List<Pedido>>(json);
+            }
+
+            source.ForEach(p =>
+            {
+                TodosPedidos.Add(p);
+            });
+
+        }
     }
 
     class PesquisaPessoa : BaseCommand
