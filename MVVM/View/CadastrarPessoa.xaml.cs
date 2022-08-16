@@ -77,5 +77,9 @@ namespace WpfApp3.MVVM.View
             e.Handled = System.Text.RegularExpressions.Regex.IsMatch(e.Text, "[^0-9]+"); //permite só números
         }
 
+        private void DatagridPessoas_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
