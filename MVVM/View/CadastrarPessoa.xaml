@@ -5,8 +5,7 @@
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfApp3.MVVM.View"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             mc:Ignorable="d" d:DesignWidth="800" Height="532">
     <StackPanel Margin="20">
         <Grid Margin="0,0,10,0">
             <Grid.ColumnDefinitions>
@@ -80,21 +79,23 @@
                       Name="datagridPed"
                       SelectedItem="{Binding PedidosSelecionado}" SelectionMode="Single" HorizontalAlignment="Left" Width="292">
                 <DataGrid.Columns>
+
                     <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="Valor total" Binding="{Binding ValorTotal}"/>
                     <!--<DataGridTextColumn Header="Status" Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="Data venda" Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="Forma pagamento" Binding="{Binding Id}"/>-->
+
                 </DataGrid.Columns>
             </DataGrid>
-            <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" Margin="0,260,31,146">
+            <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="1,131,30,275" Grid.Column="1">
                 <Button Margin="22,19,0,19"
                         Width="63" 
                         Height="30"
                         Padding="3"
+                        Cursor="Hand"
                         CommandParameter="{Binding}"
                         Command="{Binding Editar}"
-                        
                         Content="Editar" Background="#FFC5C6CB"/>
                 <Button Margin="22 0 0 0"
                         Width="63" 
@@ -112,6 +113,37 @@
                         CommandParameter="{Binding}"
                         Command="{Binding NovoPedido}"
                         Content="Novo Pedido" Background="#FF4DCF5F"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="6,335,57,71" Grid.Column="1">
+                <Button Margin="5,19,0,19"
+                    Width="63" 
+                    Height="30"
+                    Padding="3"
+                    Cursor="Hand"
+                    CommandParameter="{Binding}"
+                    Command="{Binding }"    
+                    Content="Entregues" Background="#FF4DCF5F"
+                    ToolTip="Filtrar Pedidos Entregues"
+                        />
+                <Button Margin="10,19,0,19"
+                    Width="80" 
+                    Height="30" 
+                    Padding="3" 
+                    Cursor="Hand"
+                    CommandParameter="{Binding}"
+                    Command="{Binding }"
+                    Content="Aguardando" Background="#FFE68282"
+                    ToolTip="Filtrar Pedidos Aguardando"
+                        />
+                <Button Margin="10 0 0 0"
+                    Width="85" 
+                    Height="30" 
+                    Padding="3" 
+                    Cursor="Hand"
+                    CommandParameter="{Binding}"
+                    Command="{Binding }"
+                    Content="Pagos" Background="#FFFF00"
+                    ToolTip="Filtrar Pedidos Pagos"/>
             </StackPanel>
         </Grid>
     </StackPanel>
