@@ -106,6 +106,7 @@
     </ApplicationDefinition>
     <Compile Include="MVVM\Command\PedidoCommand\IncluirPedidoCommand.cs" />
     <Compile Include="MVVM\Command\PedidoCommand\FiltrarStatusPedidoCommand.cs" />
+    <Compile Include="MVVM\Command\PessoaCommand\MudarStatusPedido.cs" />
     <Compile Include="MVVM\Command\PessoaCommand\EditarPessoaCommand.cs" />
     <Compile Include="MVVM\Command\PessoaCommand\NovaPessoaCommand.cs" />
     <Compile Include="MVVM\Command\PessoaCommand\PesquisarPessoaCommand.cs" />

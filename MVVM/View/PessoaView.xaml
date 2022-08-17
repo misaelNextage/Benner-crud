@@ -51,12 +51,12 @@
             <ScrollViewer Grid.Column="1"
                           Grid.Row="1"
                           HorizontalScrollBarVisibility="Disabled"
-                          VerticalScrollBarVisibility="Auto" Margin="0,0,23,338">
+                          VerticalScrollBarVisibility="Auto" Margin="0,0,0,338" HorizontalAlignment="Left" Width="391">
                 <DataGrid Grid.Column="1" ItemsSource="{Binding Pessoas}"
                       AutoGenerateColumns="False"
                       IsReadOnly="True"
                           Height="136"
-                          Width="325"
+                          Width="366"
                       Name="datagridPessoas"
                       SelectedItem="{Binding PessoasSelecionado}"
                           SelectionMode="Single" >
@@ -65,6 +65,7 @@
                         <DataGridTextColumn Header="Nome" Binding="{Binding Nome}"/>
                         <DataGridTextColumn Header="Cpf" Binding="{Binding Cpf}"/>
                         <DataGridTextColumn Header="Endereço" Binding="{Binding Endereco}"/>
+                        <DataGridTextColumn Binding="{Binding Path=Name}" />
                     </DataGrid.Columns>
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectionChanged">
@@ -75,12 +76,12 @@
                     </i:Interaction.Triggers>
                 </DataGrid>
             </ScrollViewer>
-            <DataGrid Margin="1,215,10,123" Grid.Row="1"
+            <DataGrid Margin="348,275,12,63" Grid.Row="1"
                       ItemsSource="{Binding PedidosFiltrados}"
                       AutoGenerateColumns="False"
                       IsReadOnly="True"
                       Name="datagridPed"
-                      SelectedItem="{Binding PedidosSelecionado}" SelectionMode="Single" Grid.Column="1">
+                      SelectedItem="{Binding PedidosSelecionado}" SelectionMode="Single" Grid.ColumnSpan="2">
 
                 <DataGrid.Columns>
 
@@ -89,6 +90,34 @@
                     <DataGridTextColumn Header="Data venda" Binding="{Binding DataVenda}"/>
                     <DataGridTextColumn Header="Forma pagamento" Binding="{Binding FormaPagamentoPedido}"/>
                     <DataGridTextColumn Header="Status" Binding="{Binding StatusPedido}"/>
+
+                    <DataGridTemplateColumn Header="">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button >E</Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+
+                                <Button >P</Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button ToolTip="Marcar como recebido"
+                                        Content="R"
+                                        Click="Button_Click"
+                                        CommandParameter="{Binding}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
 
                 </DataGrid.Columns>
             </DataGrid>
@@ -118,7 +147,7 @@
                         Command="{Binding IncluirPedidoCommand}"
                         Content="Novo Pedido" Background="#FF4DCF5F" Click="Button_Click"/>
             </StackPanel>
-            <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="337,351,-2,55" Grid.ColumnSpan="2">
+            <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="31,207,-20,199" Grid.Column="1">
                 <Button Margin="5,19,0,19"
                     Name="RECEBIDO"
                     Width="63" 
