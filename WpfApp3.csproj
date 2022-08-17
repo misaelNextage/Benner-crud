@@ -104,8 +104,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="MVVM\Command\PedidoCommand\FiltrarStatusPedidosCommand.cs" />
+    <Compile Include="MVVM\Command\PedidoCommand\FiltrarStatusPedidoCommand.cs" />
+    <Compile Include="MVVM\Command\PessoaCommand\EditarPessoaCommand.cs" />
+    <Compile Include="MVVM\Command\PessoaCommand\NovaPessoaCommand.cs" />
+    <Compile Include="MVVM\Command\PessoaCommand\PesquisarPessoaCommand.cs" />
     <Compile Include="MVVM\Command\PessoaCommand\SelecionarPessoaCommand.cs" />
+    <Compile Include="MVVM\Command\PessoaCommand\DeletarPessoaCommand.cs" />
+    <Compile Include="MVVM\Command\ProdutoCommand\EditarProdutoCommand.cs" />
+    <Compile Include="MVVM\Command\ProdutoCommand\NovoProdutoCommand.cs" />
+    <Compile Include="MVVM\Command\ProdutoCommand\PesquisarProdutoCommand.cs" />
+    <Compile Include="MVVM\Command\ProdutoCommand\DeletarProdutoCommand.cs" />
     <Compile Include="Util\Validacao.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -140,12 +148,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MVVM\Command\PessoaCommand\DeletarPessoaCommand.cs" />
-    <Compile Include="MVVM\Command\PessoaCommand\EditarPessoaCommand.cs" />
-    <Compile Include="MVVM\Command\ProdutoCommand\EditarProdutoCommand.cs" />
-    <Compile Include="MVVM\Command\PessoaCommand\NovaPessoaCommand.cs" />
-    <Compile Include="MVVM\Command\PessoaCommand\PesquisarPessoaCommand.cs" />
-    <Compile Include="MVVM\Command\ProdutoCommand\PesquisarProdutoCommand.cs" />
     <Compile Include="core\BaseNotifyPropertyChanged.cs" />
     <Compile Include="MVVM\Model\Pedido.cs" />
     <Compile Include="MVVM\Model\Pessoa.cs" />
@@ -153,9 +155,7 @@
     <Compile Include="MVVM\ViewModel\PessoaViewModel.cs" />
     <Compile Include="MVVM\ViewModel\PedidoViewModel.cs" />
     <Compile Include="MVVM\ViewModel\ProdutoViewModel.cs" />
-    <Compile Include="MVVM\Command\ProdutoCommand\DeletarProdutoCommand.cs" />
     <Compile Include="MVVM\ViewModel\MainViewModel.cs" />
-    <Compile Include="MVVM\Command\ProdutoCommand\NovoProdutoCommand.cs" />
     <Compile Include="MVVM\View\PessoaView.xaml.cs">
       <DependentUpon>PessoaView.xaml</DependentUpon>
     </Compile>
