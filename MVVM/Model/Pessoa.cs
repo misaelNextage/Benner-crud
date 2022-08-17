@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace WpfApp3.MVVM.Model
 {
-    class Pessoa : INotifyPropertyChanged, ICloneable, BaseNotifyPropertyChanged
+    public class Pessoa : INotifyPropertyChanged, ICloneable, BaseNotifyPropertyChanged
     {
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -17,7 +21,6 @@ namespace WpfApp3.MVVM.Model
         private long _id;
         private string _nome;
         private string _cpf;
-
         private string _endereco;
 
         public Pessoa() { }
