@@ -28,7 +28,7 @@ namespace WpfApp3.MVVM.ViewModel
 
         public SelecionarPessoaCommad SelecionarPessoaCommand { get; private set; } = new SelecionarPessoaCommad();
 
-        public FiltrarStatusPedidosCommand filtrarStatusPedidos { get; private set; } = new FiltrarStatusPedidosCommand();
+        public FiltrarStatusPedidosCommand FiltrarStatusPedidos { get; private set; } = new FiltrarStatusPedidosCommand();
 
         public IncluirPedidoCommand IncluirPedidoCommand { get; set; } = new IncluirPedidoCommand();
 
