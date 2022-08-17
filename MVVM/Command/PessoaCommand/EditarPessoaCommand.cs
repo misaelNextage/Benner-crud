@@ -6,23 +6,23 @@ using WpfApp3.MVVM.ViewModel;
 
 namespace WpfApp3.MVVM.CRUD
 {
-    class EditarPessoa : BaseCommand
+    class EditarPessoaCommand : BaseCommand
     {
         public override bool CanExecute(object parameter)
         {
-            var viewModel = parameter as CadastroPessoaViewModel;
+            var viewModel = parameter as PessoaViewModel;
             return viewModel != null && viewModel.PessoasSelecionado != null;
         }
 
         public override void Execute(object parameter)
         {
-            var viewModel = (CadastroPessoaViewModel)parameter;
+            var viewModel = (PessoaViewModel)parameter;
 
             var clonePessoa = (Model.Pessoa)viewModel.PessoasSelecionado.Clone();
 
             viewModel.PessoaEdit.Id = clonePessoa.Id;
             viewModel.PessoaEdit.Nome = clonePessoa.Nome;
-            viewModel.PessoaEdit.Cpf = clonePessoa.Cpf != null ? System.Text.RegularExpressions.Regex.Replace(clonePessoa.Cpf, "[^0-9]", ""): clonePessoa.Cpf;
+            viewModel.PessoaEdit.Cpf = clonePessoa.Cpf != null ? System.Text.RegularExpressions.Regex.Replace(clonePessoa.Cpf, "[^0-9]", "") : clonePessoa.Cpf;
             viewModel.PessoaEdit.Endereco = clonePessoa.Endereco;
 
             viewModel.Pessoas.Clear();

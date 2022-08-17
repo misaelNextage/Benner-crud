@@ -50,7 +50,7 @@
 
             <ScrollViewer Grid.Column="1"
                           Grid.Row="1"
-                          HorizontalScrollBarVisibility="Auto"
+                          HorizontalScrollBarVisibility="Disabled"
                           VerticalScrollBarVisibility="Auto" Margin="0,0,23,338">
                 <DataGrid Grid.Column="1" ItemsSource="{Binding Pessoas}"
                       AutoGenerateColumns="False"

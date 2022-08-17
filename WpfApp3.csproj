@@ -104,9 +104,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="MVVM\CRUD\IncluirPedidoCommand.cs" />
-    <Compile Include="MVVM\CRUD\FiltrarStatusPedidosCommand.cs" />
-    <Compile Include="MVVM\CRUD\SelecionarPessoaCommand.cs" />
+    <Compile Include="MVVM\Command\PedidoCommand\FiltrarStatusPedidoCommand.cs" />
+    <Compile Include="MVVM\Command\PessoaCommand\EditarPessoaCommand.cs" />
+    <Compile Include="MVVM\Command\PessoaCommand\NovaPessoaCommand.cs" />
+    <Compile Include="MVVM\Command\PessoaCommand\PesquisarPessoaCommand.cs" />
+    <Compile Include="MVVM\Command\PessoaCommand\SelecionarPessoaCommand.cs" />
+    <Compile Include="MVVM\Command\PessoaCommand\DeletarPessoaCommand.cs" />
+    <Compile Include="MVVM\Command\ProdutoCommand\EditarProdutoCommand.cs" />
+    <Compile Include="MVVM\Command\ProdutoCommand\NovoProdutoCommand.cs" />
+    <Compile Include="MVVM\Command\ProdutoCommand\PesquisarProdutoCommand.cs" />
+    <Compile Include="MVVM\Command\ProdutoCommand\DeletarProdutoCommand.cs" />
     <Compile Include="Util\Validacao.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -123,11 +130,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MVVM\View\CadastrarPessoa.xaml">
+    <Page Include="MVVM\View\PessoaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MVVM\View\CadastroProduto.xaml">
+    <Page Include="MVVM\View\ProdutoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -141,27 +148,19 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MVVM\CRUD\DeletarPessoa.cs" />
-    <Compile Include="MVVM\CRUD\EditarPessoa.cs" />
-    <Compile Include="MVVM\CRUD\EditarProduto.cs" />
-    <Compile Include="MVVM\CRUD\NovaPessoa.cs" />
-    <Compile Include="MVVM\CRUD\PesquisarPessoa.cs" />
-    <Compile Include="MVVM\CRUD\PesquisarProduto.cs" />
-    <Compile Include="MVVM\Model\BaseNotifyPropertyChanged.cs" />
+    <Compile Include="core\BaseNotifyPropertyChanged.cs" />
     <Compile Include="MVVM\Model\Pedido.cs" />
     <Compile Include="MVVM\Model\Pessoa.cs" />
     <Compile Include="MVVM\Model\Produto.cs" />
-    <Compile Include="MVVM\ViewModel\CadastroPessoaViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\PessoaViewModel.cs" />
     <Compile Include="MVVM\ViewModel\PedidoViewModel.cs" />
     <Compile Include="MVVM\ViewModel\ProdutoViewModel.cs" />
-    <Compile Include="MVVM\CRUD\DeletarProduto.cs" />
     <Compile Include="MVVM\ViewModel\MainViewModel.cs" />
-    <Compile Include="MVVM\CRUD\NovoProduto.cs" />
-    <Compile Include="MVVM\View\CadastrarPessoa.xaml.cs">
-      <DependentUpon>CadastrarPessoa.xaml</DependentUpon>
+    <Compile Include="MVVM\View\PessoaView.xaml.cs">
+      <DependentUpon>PessoaView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MVVM\View\CadastroProduto.xaml.cs">
-      <DependentUpon>CadastroProduto.xaml</DependentUpon>
+    <Compile Include="MVVM\View\ProdutoView.xaml.cs">
+      <DependentUpon>ProdutoView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\View\PedidoView.xaml.cs">
       <DependentUpon>PedidoView.xaml</DependentUpon>

@@ -7,16 +7,16 @@ using WpfApp3.MVVM.ViewModel;
 
 namespace WpfApp3.MVVM.CRUD
 {
-    class NovaPessoa : BaseCommand
+    class NovaPessoaCommand : BaseCommand
     {
         public override bool CanExecute(object parameter)
         {
-            return parameter is CadastroPessoaViewModel;
+            return parameter is PessoaViewModel;
         }
 
         public override void Execute(object parameter)
         {
-            var viewModel = (CadastroPessoaViewModel)parameter;
+            var viewModel = (PessoaViewModel)parameter;
             var pessoa = new Model.Pessoa();
             long maxId = 0;
             if (viewModel.Pessoas.Any())
@@ -52,7 +52,7 @@ namespace WpfApp3.MVVM.CRUD
                     return;
 
                 }
-                else if (!Util.Validacao.IsCpf(viewModel.PessoaEdit.Cpf.Replace(".","").Replace("-", "")))
+                else if (!Util.Validacao.IsCpf(viewModel.PessoaEdit.Cpf.Replace(".", "").Replace("-", "")))
                 {
 
                     MessageBox.Show("CPF invalido!", "Atenção", MessageBoxButton.OK, MessageBoxImage.Warning);

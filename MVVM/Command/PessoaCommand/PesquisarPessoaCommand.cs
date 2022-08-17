@@ -5,17 +5,17 @@ using WpfApp3.core;
 
 namespace WpfApp3.MVVM.ViewModel
 {
-    class PesquisarPessoa : BaseCommand
+    class PesquisarPessoaCommand : BaseCommand
     {
         public override bool CanExecute(object parameter)
         {
-            var viewModel = parameter as CadastroPessoaViewModel;
+            var viewModel = parameter as PessoaViewModel;
             return viewModel != null && viewModel.PessoasSelecionado != null;
         }
 
         public override void Execute(object parameter)
         {
-            var viewModel = (CadastroPessoaViewModel)parameter;
+            var viewModel = (PessoaViewModel)parameter;
             viewModel.Pessoas.Remove(viewModel.PessoasSelecionado);
             viewModel.PessoasSelecionado = viewModel.Pessoas.FirstOrDefault();
 

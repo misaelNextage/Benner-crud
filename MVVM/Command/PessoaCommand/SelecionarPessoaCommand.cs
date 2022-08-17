@@ -11,20 +11,20 @@ namespace WpfApp3.MVVM.CRUD
     {
         public override bool CanExecute(object parameter)
         {
-            var viewModel = parameter as CadastroPessoaViewModel;
+            var viewModel = parameter as PessoaViewModel;
             return viewModel != null && viewModel.PessoasSelecionado != null;
         }
 
         public override void Execute(object parameter)
         {
-            var viewModel = (CadastroPessoaViewModel)parameter;
+            var viewModel = (PessoaViewModel)parameter;
 
             var clonePessoa = (Model.Pessoa)viewModel.PessoasSelecionado.Clone();
 
             IEnumerable<Pedido> pedidos = from pedido in viewModel.TodosPedidos
                                           where pedido.Pessoa.Id == clonePessoa.Id
                                           select pedido;
-            if(pedidos.Any() == false)
+            if (pedidos.Any() == false)
             {
                 MessageBox.Show("Esse cliente não possui pedidos.", "Atenção", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
@@ -32,7 +32,7 @@ namespace WpfApp3.MVVM.CRUD
             foreach (Pedido elm in pedidos)
             {
                 viewModel.PedidosFiltrados.Add(elm);
-            }         
+            }
 
         }
     }
