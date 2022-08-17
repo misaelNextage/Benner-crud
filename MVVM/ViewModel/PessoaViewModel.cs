@@ -11,7 +11,7 @@ using WpfApp3.MVVM.View;
 
 namespace WpfApp3.MVVM.ViewModel
 {
-    class PessoaViewModel : ObservableCollection<Pessoa>
+    public class PessoaViewModel : ObservableCollection<Pessoa>
     {
         public Pessoa Pessoa { get; internal set; }
         public ObservableCollection<Pessoa> Pessoas { get; private set; }
@@ -64,7 +64,7 @@ namespace WpfApp3.MVVM.ViewModel
 
 
         public NovaPessoaCommand Novo { get; private set; } = new NovaPessoaCommand();
-
+        public Pessoa PessoaSelecionada { get; internal set; }
 
         public void PreparaPessoaCollection()
         {
@@ -107,7 +107,7 @@ namespace WpfApp3.MVVM.ViewModel
         }
     }
 
-    class PesquisaPessoa : BaseCommand
+    public class PesquisaPessoa : BaseCommand
     {
         public override bool CanExecute(object parameter)
         {

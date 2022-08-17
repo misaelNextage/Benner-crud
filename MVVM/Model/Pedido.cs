@@ -1,40 +1,11 @@
 ﻿using System;
-using System.ComponentModel;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace WpfApp3.MVVM.Model
 {
-    class Pedido : INotifyPropertyChanged, ICloneable, BaseNotifyPropertyChanged
+    public class Pedido
     {
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void OnPropertyChanged(string nomePropriedade)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nomePropriedade));
-        }
-
-
-        private long _id;
-        private Pessoa _pessoa;
-        private Double _valorTotal;
-        private String _dataVenda;
-        private String _statusPedido;
-        private String _formaPagamento;
-        public enum _status
-        {
-            PENDENTE,
-            PAGO,
-            ENVIADO,
-            RECEBIDO
-        }
-
-
-        public enum FormaPagamento
-        {
-            Dinheiro,
-            Cartao,
-            Boleto
-        }
-
         public Pedido() { }
 
         public object Clone()
@@ -42,64 +13,39 @@ namespace WpfApp3.MVVM.Model
             return this.MemberwiseClone();
         }
 
+        [Key]
+        public long Id { get; set; }
 
-        public long Id
-        {
-            get { return _id; }
-            set
-            {
-                _id = value;
-                OnPropertyChanged("Id");
-            }
-        }
+        [Required]
+        public Pessoa Pessoa { get; set; }
 
-        public Pessoa Pessoa
-        {
-            get { return _pessoa; }
-            set
-            {
-                _pessoa = value;
-                OnPropertyChanged("Pessoa");
-            }
-        }
+        [Required]
+        public List<ItemPedido> ItemsPedido { get; set; }
 
-        public Double ValorTotal
+
+        public double ValorTotal { get; set; }
+
+        public DateTime DataVenda { get; set; }
+
+        [Required]
+        public FormaPagamentoEnum FormaPagamento { get; set; }
+
+        public StatusEnum Status { get; set; }
+        public object StatusPedido { get; internal set; }
+
+        public enum FormaPagamentoEnum
         {
-            get { return _valorTotal; }
-            set
-            {
-                _valorTotal = value;
-                OnPropertyChanged("ValorTotal");
-            }
-        }
-        public String DataVenda
-        {
-            get { return _dataVenda; }
-            set
-            {
-                _dataVenda = value;
-                OnPropertyChanged("DataVenda");
-            }
-        }
-        public String StatusPedido
-        {
-            get { return _statusPedido;}
-            set
-            {
-                _statusPedido = value;
-                OnPropertyChanged("StatusPedido");
-            }
-            
+            Dinheiro,
+            Cartao,
+            Boleto
         }
 
-        public String FormaPagamentoPedido
+        public enum StatusEnum
         {
-            get { return _formaPagamento; }
-            set
-            {
-                _formaPagamento = value;
-                OnPropertyChanged("FormaPagamento");
-            }
+            Pendente,
+            Pago,
+            Enviado,
+            Recebido
         }
     }
 }
