@@ -107,6 +107,7 @@
     <Compile Include="MVVM\Command\PedidoCommand\EditarPedidoCommand.cs" />
     <Compile Include="MVVM\Command\PedidoCommand\NovoPedidoCommand.cs" />
     <Compile Include="MVVM\Command\PedidoCommand\DeletarPedidoCommand.cs" />
+    <Compile Include="MVVM\Command\PedidoCommand\IncluirPedidoCommand.cs" />
     <Compile Include="MVVM\Command\PedidoCommand\FiltrarStatusPedidoCommand.cs" />
     <Compile Include="MVVM\Command\PessoaCommand\EditarPessoaCommand.cs" />
     <Compile Include="MVVM\Command\PessoaCommand\NovaPessoaCommand.cs" />

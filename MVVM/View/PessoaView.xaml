@@ -5,7 +5,9 @@
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfApp3.MVVM.View"
+             xmlns:viewModel="clr-namespace:WpfApp3.MVVM.ViewModel"
              mc:Ignorable="d" d:DesignWidth="800" Height="532">
+
     <StackPanel Margin="20">
         <Grid Margin="0,0,10,0" RenderTransformOrigin="0.477,0.501">
             <Grid.ColumnDefinitions>
@@ -113,8 +115,8 @@
                         Padding="3" 
                         Cursor="Hand"
                         CommandParameter="{Binding}"
-                        Command="{Binding NovoPedido}"
-                        Content="Novo Pedido" Background="#FF4DCF5F"/>
+                        Command="{Binding IncluirPedidoCommand}"
+                        Content="Novo Pedido" Background="#FF4DCF5F" Click="Button_Click"/>
             </StackPanel>
             <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="337,351,-2,55" Grid.ColumnSpan="2">
                 <Button Margin="5,19,0,19"
@@ -126,7 +128,7 @@
                     CommandParameter="{Binding }"
                     Command="{Binding filtrarStatusPedidos}"    
                     Content="Entregue" Background="#FF4DCF5F"
-                    ToolTip="Filtrar Pedidos Entregues" Click="FiltroEnviado"
+                    ToolTip="Filtrar Pedidos Entregues" Click="FiltroStatusPedido"
                         />
                 <Button Margin="10,19,0,19"
                     Name="PENDENTE"
@@ -137,7 +139,7 @@
                     CommandParameter="{Binding}"
                     Command="{Binding filtrarStatusPedidos }"
                     Content="Aguardando" Background="#FFE68282"
-                    ToolTip="Filtrar pedidos que estão aguardando pagamento" Click="FiltroEnviado"
+                    ToolTip="Filtrar pedidos que estão aguardando pagamento" Click="FiltroStatusPedido"
                         />
                 <Button Margin="10 0 0 0"
                     Name="PAGO"
@@ -148,7 +150,7 @@
                     CommandParameter="{Binding}"
                     Command="{Binding filtrarStatusPedidos }"
                     Content="Pago" Background="#FFFF00"
-                    ToolTip="Filtrar Pedidos Pagos" Click="FiltroEnviado"/>
+                    ToolTip="Filtrar Pedidos Pagos" Click="FiltroStatusPedido"/>
             </StackPanel>
         </Grid>
     </StackPanel>
