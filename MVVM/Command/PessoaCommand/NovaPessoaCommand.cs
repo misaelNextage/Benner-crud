@@ -85,6 +85,17 @@ namespace WpfApp3.MVVM.CRUD
                 {
                     outputFile.WriteLine(jsonString);
                 }
+                //Limpa os campos e possibilita uma nova inclusão
+                viewModel.Edicao = false;
+                viewModel.Pessoas.Clear();
+                viewModel.PreparaPessoaCollection();
+                viewModel.PessoasSelecionado = pessoa;
+                viewModel.PessoaEdit.Id = 0;
+                viewModel.PessoaEdit.Nome = "";
+                viewModel.PessoaEdit.Endereco = "";
+                viewModel.PessoaEdit.Cpf = "";
+                viewModel.Pessoas.Clear();
+                viewModel.PreparaPessoaCollection();
             }
         }
 
