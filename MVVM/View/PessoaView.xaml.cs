@@ -4,6 +4,7 @@ using System.Text.Json;
 using System.Windows;
 using System.Windows.Controls;
 using WpfApp3.MVVM.Model;
+using WpfApp3.MVVM.ViewModel;
 
 namespace WpfApp3.MVVM.View
 {
@@ -13,6 +14,7 @@ namespace WpfApp3.MVVM.View
     public partial class CadastrarPessoa : UserControl
     {
         public static string nomeBotaoFiltroPedido = "";
+
         public CadastrarPessoa()
         {
             InitializeComponent();
