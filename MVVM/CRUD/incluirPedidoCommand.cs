@@ -12,27 +12,26 @@ using WpfApp3.MVVM.View;
 
 namespace WpfApp3.MVVM.CRUD
 {
-    class FiltrarStatusPedidosCommand : BaseCommand
+    class IncluirPedidoCommand : BaseCommand
     {
         public override bool CanExecute(object parameter)
         {
             var viewModel = parameter as CadastroPessoaViewModel;
-            return viewModel != null && viewModel.PessoasSelecionado != null;
+            return viewModel != null;
         }
 
         public override void Execute(object parameter)
-        {            
-            var viewModel = (CadastroPessoaViewModel)parameter;
-
-            viewModel.PedidosFiltrados.Clear();
-            foreach (Pedido pedido in viewModel.TodosPedidos)
+        {
+            try
             {
-                if (pedido.StatusPedido.Equals(CadastrarPessoa.nomeBotaoFiltroPedido))
-                {
-                    viewModel.PedidosFiltrados.Add(pedido);
-                }
-
-            }         
+                new MainWindow().ShowDialog(); //faz a abertura da janela de pedido
+                System.Windows.Application.Current.Shutdown(); //encerra a aplicação
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Finalizando");
+            }
+            
 
         }
     }
