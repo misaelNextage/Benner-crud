@@ -16,6 +16,7 @@ namespace WpfApp3.MVVM.View
     public partial class CadastrarPessoa : UserControl
     {
         public static string nomeBotaoFiltroPedido = "";
+
         public CadastrarPessoa()
         {
             InitializeComponent();
