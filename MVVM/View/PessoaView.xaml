@@ -65,7 +65,6 @@
                         <DataGridTextColumn Header="Nome" Binding="{Binding Nome}"/>
                         <DataGridTextColumn Header="Cpf" Binding="{Binding Cpf}"/>
                         <DataGridTextColumn Header="Endereço" Binding="{Binding Endereco}"/>
-                        <DataGridTextColumn Binding="{Binding Path=Name}" />
                     </DataGrid.Columns>
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectionChanged">
@@ -92,43 +91,32 @@
                     <DataGridTextColumn Header="Forma pagamento" Binding="{Binding FormaPagamentoPedido}"/>
                     <DataGridTextColumn Header="Status" Binding="{Binding StatusPedido}"/>
 
-                    <DataGridTemplateColumn Header="">
+                    <DataGridTemplateColumn Header="Ações" Width="80">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button ToolTip="Marcar como pago"
+                                <StackPanel Orientation="Horizontal">
+                                    <Button ToolTip="Marcar como pago"
                                         Content="P"
+                                        Width="20"
                                         Name="Pago"
                                         Click="Button_Click"
                                         CommandParameter="{Binding}"/>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-
-                    <DataGridTemplateColumn Header="">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-
-                                <Button ToolTip="Marcar como enviado"
+                                    <Button ToolTip="Marcar como enviado"
                                         Content="E"
+                                        Width="20"
                                         Name="Enviado"
                                         Click="Button_Click"
                                         CommandParameter="{Binding}"/>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-
-                    <DataGridTemplateColumn Header="">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button ToolTip="Marcar como recebido"
+                                    <Button ToolTip="Marcar como recebido"
                                         Content="R"
+                                        Width="20"
                                         Name="Recebido"
                                         Click="Button_Click"
                                         CommandParameter="{Binding}" />
+                                </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-
                 </DataGrid.Columns>
             </DataGrid>
 
