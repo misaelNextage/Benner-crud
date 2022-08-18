@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using System.Windows;
 using System.Windows.Controls;
+using WpfApp3.MVVM.CRUD;
 using WpfApp3.MVVM.Model;
+using WpfApp3.MVVM.ViewModel;
 
 namespace WpfApp3.MVVM.View
 {
@@ -86,8 +89,14 @@ namespace WpfApp3.MVVM.View
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
-            
+           
+            var x = (Button)e.Source;
+            var y = sender as Button;
+            var dt = x.DataContext;
+            var td = (Pedido)x.DataContext;
+
+            MudarStatusPedido mudar = new MudarStatusPedido();
+            mudar.alterarStatusPedido(td, y.Name.ToUpper());
         }
     }
 }
