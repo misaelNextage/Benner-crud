@@ -6,7 +6,7 @@ using WpfApp3.MVVM.ViewModel;
 
 namespace WpfApp3.MVVM.CRUD
 {
-    class EditarPessoaCommand : BaseCommand
+    public class EditarPessoaCommand : BaseCommand
     {
         public override bool CanExecute(object parameter)
         {
@@ -42,13 +42,6 @@ namespace WpfApp3.MVVM.CRUD
             viewModel.Pessoas[posicao] = viewModel.PessoaEdit;
 
             viewModel.Edicao = true;
-
-            string jsonString = JsonSerializer.Serialize(viewModel.Pessoas, new JsonSerializerOptions() { WriteIndented = true });
-            using (StreamWriter outputFile = new StreamWriter("pessoa.json"))
-            {
-                outputFile.WriteLine(jsonString);
-            }
-
         }
     }
 }

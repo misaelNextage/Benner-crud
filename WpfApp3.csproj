@@ -104,7 +104,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+<<<<<<< HEAD
+    <Compile Include="MVVM\Command\PedidoCommand\EditarPedidoCommand.cs" />
+    <Compile Include="MVVM\Command\PedidoCommand\NovoPedidoCommand.cs" />
+    <Compile Include="MVVM\Command\PedidoCommand\DeletarPedidoCommand.cs" />
     <Compile Include="MVVM\Command\PedidoCommand\IncluirPedidoCommand.cs" />
+=======
+>>>>>>> parent of d05176b (Correção do merge)
     <Compile Include="MVVM\Command\PedidoCommand\FiltrarStatusPedidoCommand.cs" />
     <Compile Include="MVVM\Command\PessoaCommand\MudarStatusPedido.cs" />
     <Compile Include="MVVM\Command\PessoaCommand\EditarPessoaCommand.cs" />
@@ -116,6 +122,14 @@
     <Compile Include="MVVM\Command\ProdutoCommand\NovoProdutoCommand.cs" />
     <Compile Include="MVVM\Command\ProdutoCommand\PesquisarProdutoCommand.cs" />
     <Compile Include="MVVM\Command\ProdutoCommand\DeletarProdutoCommand.cs" />
+    <Compile Include="MVVM\Model\ItemPedido.cs" />
+    <Compile Include="MVVM\ViewModel\ModalClienteViewModel.cs" />
+    <Compile Include="MVVM\View\CatalogoProdutos.xaml.cs">
+      <DependentUpon>CatalogoProdutos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\ModalClientes.xaml.cs">
+      <DependentUpon>ModalClientes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Util\Validacao.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -132,6 +146,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MVVM\View\CatalogoProdutos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\ModalClientes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVVM\View\PessoaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

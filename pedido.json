@@ -7,6 +7,37 @@
     "ValorTotal": 200.0,
     "DataVenda": "2022-08-16",
     "FormaPagamentoPedido": "BOLETO",
+
+    "StatusPedido": "RECEBIDO"
+  },
+  {
+    "Id": 2,
+    "Pessoa": {
+      "Id": 2
+    },
+    "ValorTotal": 5000.0,
+    "DataVenda": "2022-08-16",
+    "FormaPagamentoPedido": "BOLETO",
+    "StatusPedido": "PENDENTE"
+  },
+  {
+    "Id": 3,
+    "Pessoa": {
+      "Id": 2
+    },
+    "ValorTotal": 500.0,
+    "DataVenda": "2022-08-16",
+    "FormaPagamentoPedido": "BOLETO",
+    "StatusPedido": "PAGO"
+  },
+  {
+    "Id": 4,
+    "Pessoa": {
+      "Id": 6
+    },
+    "ValorTotal": 500.0,
+    "DataVenda": "2022-08-16",
+    "FormaPagamentoPedido": "BOLETO",
     "StatusPedido": "PAGO"
   }
 

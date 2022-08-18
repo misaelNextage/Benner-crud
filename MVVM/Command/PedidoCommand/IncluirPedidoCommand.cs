@@ -12,7 +12,7 @@ using WpfApp3.MVVM.View;
 
 namespace WpfApp3.MVVM.CRUD
 {
-    class IncluirPedidoCommand : BaseCommand
+    public class IncluirPedidoCommand : BaseCommand
     {
         public override bool CanExecute(object parameter)
         {

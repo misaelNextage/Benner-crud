@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
@@ -60,6 +60,7 @@ namespace WpfApp3.MVVM.View
             Button status = sender as Button;
             nomeBotaoFiltroPedido = status.Name.ToUpper();
         }
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

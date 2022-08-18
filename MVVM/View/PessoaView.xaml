@@ -144,7 +144,7 @@
                         Cursor="Hand"
                         CommandParameter="{Binding}"
                         Command="{Binding IncluirPedidoCommand}"
-                        Content="Novo Pedido" Background="#FF4DCF5F" Click="Button_Click"/>
+                        Content="Novo Pedido" Background="#FF4DCF5F"/>
             </StackPanel>
             <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="347,243,13,163" Grid.ColumnSpan="2">
                 <Button Margin="5,19,0,19"
