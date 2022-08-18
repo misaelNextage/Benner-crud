@@ -95,6 +95,8 @@ namespace WpfApp3.MVVM.CRUD
                 viewModel.PessoaEdit.Nome = "";
                 viewModel.PessoaEdit.Endereco = "";
                 viewModel.PessoaEdit.Cpf = "";
+                viewModel.Pessoas.Clear();
+                viewModel.PreparaPessoaCollection();
             }
         }
 

@@ -31,6 +31,7 @@ namespace WpfApp3.MVVM.ViewModel
         public FiltrarStatusPedidosCommand FiltrarStatusPedidos { get; private set; } = new FiltrarStatusPedidosCommand();
 
         public IncluirPedidoCommand IncluirPedidoCommand { get; set; } = new IncluirPedidoCommand();
+        public MudarStatusPedido MudarStatusPedidoCommand { get; set; } = new MudarStatusPedido();
 
         public bool Edicao = false;
 

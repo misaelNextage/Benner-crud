@@ -112,6 +112,7 @@
 =======
 >>>>>>> parent of d05176b (Correção do merge)
     <Compile Include="MVVM\Command\PedidoCommand\FiltrarStatusPedidoCommand.cs" />
+    <Compile Include="MVVM\Command\PessoaCommand\MudarStatusPedido.cs" />
     <Compile Include="MVVM\Command\PessoaCommand\EditarPessoaCommand.cs" />
     <Compile Include="MVVM\Command\PessoaCommand\NovaPessoaCommand.cs" />
     <Compile Include="MVVM\Command\PessoaCommand\PesquisarPessoaCommand.cs" />

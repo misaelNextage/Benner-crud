@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
+using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using System.Windows;
 using System.Windows.Controls;
+using WpfApp3.MVVM.CRUD;
 using WpfApp3.MVVM.Model;
+using WpfApp3.MVVM.ViewModel;
 
 namespace WpfApp3.MVVM.View
 {
@@ -13,36 +16,10 @@ namespace WpfApp3.MVVM.View
     public partial class CadastrarPessoa : UserControl
     {
         public static string nomeBotaoFiltroPedido = "";
+
         public CadastrarPessoa()
         {
             InitializeComponent();
-        }
-
-        public void salvar(object sender, RoutedEventArgs e)
-        {
-            /*Pessoa pessoa = new Pessoa();
-            pessoa.Nome = Nome.Text;
-            pessoa.Id = 1;
-            pessoa.Cpf = Cpf.Text;
-            pessoa.Endereco = Endereco.Text;*/
-
-
-            List<Pessoa> source = new List<Pessoa>();
-
-            using (StreamReader r = new StreamReader("pessoa.json"))
-            {
-                string json = r.ReadToEnd();
-                source = JsonSerializer.Deserialize<List<Pessoa>>(json);
-            }
-
-            /*source.Add(pessoa);*/
-
-            string jsonString = JsonSerializer.Serialize(source, new JsonSerializerOptions() { WriteIndented = true });
-            using (StreamWriter outputFile = new StreamWriter("pessoa.json"))
-            {
-                outputFile.WriteLine(jsonString);
-                outputFile.Close();
-            }
         }
 
         private void Pesquisar_TextChanged(object sender, TextChangedEventArgs e)
@@ -84,5 +61,17 @@ namespace WpfApp3.MVVM.View
             nomeBotaoFiltroPedido = status.Name.ToUpper();
         }
 
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+           
+            var x = (Button)e.Source;
+            var y = sender as Button;
+            var dt = x.DataContext;
+            var td = (Pedido)x.DataContext;
+
+            MudarStatusPedido mudar = new MudarStatusPedido();
+            mudar.alterarStatusPedido(td, y.Name.ToUpper());
+        }
     }
 }

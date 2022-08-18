@@ -24,10 +24,10 @@ namespace WpfApp3.MVVM.CRUD
             IEnumerable<Pedido> pedidos = from pedido in viewModel.TodosPedidos
                                           where pedido.Pessoa.Id == clonePessoa.Id
                                           select pedido;
-            if (pedidos.Any() == false)
-            {
-                MessageBox.Show("Esse cliente não possui pedidos.", "Atenção", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
+            //if (pedidos.Any() == false)
+            //{
+            //    MessageBox.Show("Esse cliente não possui pedidos.", "Atenção", MessageBoxButton.OK, MessageBoxImage.Warning);
+            //}
             viewModel.PedidosFiltrados.Clear();
             foreach (Pedido elm in pedidos)
             {
